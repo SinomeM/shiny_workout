@@ -1,0 +1,59 @@
+schema_version: 1
+name: Gentle yoga flow
+description: Standing and floor poses held for five breaths or so.
+sport: yoga
+tags:
+  - yoga
+  - mat
+steps:
+  - type: warmup
+    name: Easy seat, breathing
+    seconds: 60
+    advance: auto
+  - type: repeat
+    times: 3
+    steps:
+      - type: exercise
+        name: Mountain pose
+        seconds: 20
+        advance: auto
+      - type: exercise
+        name: Forward fold
+        seconds: 30
+        advance: auto
+      - type: exercise
+        name: Downward-facing dog
+        seconds: 30
+        advance: auto
+      - type: exercise
+        name: Cobra
+        seconds: 20
+        advance: auto
+  - type: exercise
+    name: Warrior II
+    seconds: 30
+    sides: 2
+    advance: auto
+  - type: exercise
+    name: Triangle
+    seconds: 30
+    sides: 2
+    advance: auto
+  - type: exercise
+    name: Tree pose
+    seconds: 30
+    sides: 2
+    advance: auto
+  - type: exercise
+    name: Seated forward fold
+    seconds: 45
+    advance: auto
+  - type: exercise
+    name: Supine twist
+    seconds: 30
+    sides: 2
+    advance: auto
+  - type: cooldown
+    name: Corpse pose
+    advance: manual
+    notes: Stay as long as you like, then press Space.

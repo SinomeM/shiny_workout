@@ -1,0 +1,49 @@
+schema_version: 1
+name: Morning mobility
+description: Gentle joint-by-joint routine, mat and foam roller.
+sport: mobility
+tags:
+  - mobility
+  - mat
+  - foam roller
+settings:
+  prep_seconds: 5
+steps:
+  - type: exercise
+    name: Neck rolls
+    seconds: 45
+    advance: auto
+  - type: exercise
+    name: Shoulder rolls
+    seconds: 45
+    advance: auto
+  - type: exercise
+    name: Thoracic rotation
+    reps: 8
+    sides: 2
+    advance: manual
+  - type: exercise
+    name: Hip circles
+    reps: 10
+    sides: 2
+    advance: manual
+  - type: exercise
+    name: World's greatest stretch
+    reps: 5
+    sides: 2
+    advance: manual
+  - type: exercise
+    name: Foam roller, upper back
+    seconds: 60
+    advance: auto
+    weight: foam roller
+  - type: exercise
+    name: Hamstring stretch
+    seconds: 45
+    sides: 2
+    advance: auto
+  - type: exercise
+    name: Ankle circles
+    reps: 10
+    sides: 2
+    advance: manual

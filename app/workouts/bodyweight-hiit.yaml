@@ -1,0 +1,48 @@
+schema_version: 1
+name: Bodyweight HIIT
+description: 40 s work / 20 s rest, four rounds of four moves.
+sport: hiit
+tags:
+  - bodyweight
+  - cardio
+steps:
+  - type: warmup
+    name: March in place
+    seconds: 120
+    advance: auto
+  - type: repeat
+    times: 4
+    skip_last_rest: true
+    steps:
+      - type: exercise
+        name: Squat jumps
+        seconds: 40
+        advance: auto
+      - type: rest
+        seconds: 20
+        advance: auto
+      - type: exercise
+        name: Mountain climbers
+        seconds: 40
+        advance: auto
+      - type: rest
+        seconds: 20
+        advance: auto
+      - type: exercise
+        name: Burpees
+        seconds: 40
+        advance: auto
+      - type: rest
+        seconds: 20
+        advance: auto
+      - type: exercise
+        name: High knees
+        seconds: 40
+        advance: auto
+      - type: rest
+        seconds: 60
+        advance: auto
+  - type: cooldown
+    name: Walk and breathe
+    seconds: 120
+    advance: auto

@@ -1,0 +1,54 @@
+schema_version: 1
+name: Knee strengthening
+description: >-
+  Common knee strengthening exercises with a mat and a resistance band. A general
+  example, not medical advice: follow your physiotherapist's prescription.
+sport: physio
+tags:
+  - physio
+  - knee
+  - band
+settings:
+  relax_seconds: 3
+  switch_seconds: 10
+steps:
+  - type: warmup
+    name: Heel slides
+    reps: 10
+    sides: 2
+    advance: manual
+  - type: repeat
+    times: 2
+    skip_last_rest: true
+    steps:
+      - type: exercise
+        name: Quad sets
+        reps: 10
+        hold_seconds: 5
+        sides: 2
+        advance: auto
+        notes: Press the back of the knee into the mat.
+      - type: exercise
+        name: Straight-leg raise
+        reps: 10
+        hold_seconds: 3
+        sides: 2
+        advance: auto
+      - type: exercise
+        name: Clamshell
+        reps: 12
+        sides: 2
+        advance: manual
+        weight: light band
+      - type: exercise
+        name: Wall sit
+        seconds: 30
+        advance: auto
+      - type: rest
+        seconds: 60
+        advance: auto
+  - type: cooldown
+    name: Hamstring stretch
+    seconds: 30
+    sides: 2
+    advance: auto

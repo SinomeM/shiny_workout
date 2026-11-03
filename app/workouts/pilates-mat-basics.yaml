@@ -1,0 +1,56 @@
+schema_version: 1
+name: Pilates mat basics
+description: Classic beginner mat sequence, slow and controlled.
+sport: pilates
+tags:
+  - pilates
+  - core
+  - mat
+steps:
+  - type: warmup
+    name: Breathing, lying down
+    seconds: 60
+    advance: auto
+  - type: warmup
+    name: Pelvic curl
+    reps: 8
+    advance: manual
+  - type: exercise
+    name: The hundred
+    seconds: 60
+    advance: auto
+    notes: Pump the arms, breathe in for 5, out for 5.
+  - type: exercise
+    name: Roll-up
+    reps: 6
+    advance: manual
+  - type: exercise
+    name: Single-leg circles
+    reps: 5
+    sides: 2
+    advance: manual
+  - type: exercise
+    name: Rolling like a ball
+    reps: 8
+    advance: manual
+  - type: exercise
+    name: Single-leg stretch
+    reps: 10
+    advance: manual
+  - type: exercise
+    name: Spine stretch forward
+    reps: 5
+    advance: manual
+  - type: exercise
+    name: Side-lying leg lifts
+    reps: 10
+    sides: 2
+    advance: manual
+  - type: exercise
+    name: Swimming
+    seconds: 30
+    advance: auto
+  - type: cooldown
+    name: Child's pose
+    seconds: 60
+    advance: auto

@@ -1,0 +1,48 @@
+schema_version: 1
+name: Bodyweight strength
+description: Full-body circuit, no equipment.
+sport: strength
+tags:
+  - bodyweight
+  - full body
+steps:
+  - type: warmup
+    name: Jumping jacks
+    seconds: 60
+    advance: auto
+  - type: warmup
+    name: Arm circles
+    seconds: 30
+    advance: auto
+  - type: repeat
+    times: 3
+    skip_last_rest: true
+    steps:
+      - type: exercise
+        name: Push-ups
+        reps: 10
+        advance: manual
+        notes: Knees down if form breaks.
+      - type: exercise
+        name: Bodyweight squats
+        reps: 15
+        advance: manual
+      - type: exercise
+        name: Reverse lunges
+        reps: 8
+        sides: 2
+        advance: manual
+      - type: exercise
+        name: Glute bridge
+        reps: 12
+        advance: manual
+      - type: exercise
+        name: Plank
+        seconds: 30
+        advance: auto
+      - type: rest
+        seconds: 60
+        advance: auto
+  - type: cooldown
+    name: Stretch
+    advance: manual

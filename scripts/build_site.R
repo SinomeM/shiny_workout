@@ -3,6 +3,7 @@
 
 args <- commandArgs(trailingOnly = TRUE)
 
+Sys.setenv(NOT_CRAN = "true")  # run snapshot tests
 testthat::test_dir("tests/testthat", stop_on_failure = TRUE)
 
 unlink("_site", recursive = TRUE)

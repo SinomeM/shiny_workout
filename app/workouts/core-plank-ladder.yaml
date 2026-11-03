@@ -1,0 +1,59 @@
+schema_version: 1
+name: Plank ladder
+description: Core work built around planks of increasing length.
+sport: strength
+tags:
+  - core
+  - planks
+  - mat
+steps:
+  - type: warmup
+    name: Cat-cow
+    seconds: 60
+    advance: auto
+  - type: exercise
+    name: Front plank
+    seconds: 20
+    advance: auto
+  - type: rest
+    seconds: 15
+    advance: auto
+  - type: exercise
+    name: Front plank
+    seconds: 40
+    advance: auto
+  - type: rest
+    seconds: 15
+    advance: auto
+  - type: exercise
+    name: Front plank
+    seconds: 60
+    advance: manual
+    notes: Hold past the beep if you can, then press Space.
+  - type: rest
+    seconds: 30
+    advance: auto
+  - type: repeat
+    times: 2
+    steps:
+      - type: exercise
+        name: Side plank
+        seconds: 30
+        sides: 2
+        advance: auto
+      - type: exercise
+        name: Dead bug
+        reps: 10
+        advance: manual
+      - type: exercise
+        name: Bird dog
+        reps: 8
+        sides: 2
+        advance: manual
+      - type: rest
+        seconds: 30
+        advance: auto
+  - type: cooldown
+    name: Child's pose
+    seconds: 60
+    advance: auto

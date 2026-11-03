@@ -297,10 +297,10 @@ doesn't forbid more later).
 - `new_workout()`, `new_step(type, …)`
 - `validate_workout(w, catalog)` → errors (block loading/saving) and warnings (e.g. an
   unknown exercise id still loads, shown as "Unknown exercise").
-- `compile_workout(w, catalog, settings)` → flat list of atomic steps: repeats expanded
+- `compile_workout(w, settings, catalog = NULL)` → flat list (a data frame) of atomic steps: repeats expanded
   (`Round 2/3`), sides expanded (`Left` / `Right` + switch countdown), exercise names
   resolved, `next` preview. This is what the player runs.
-- `estimate_duration(w, settings)` → total and per-block estimate.
+- `estimate_duration(w, settings, catalog = NULL)` → total and per-block estimate.
 - `workout_to_yaml()` / `workout_from_yaml()` with stable key order, nulls dropped, and
   round-trip tests. Internal UI ids (`uid`) are stripped on save.
 
@@ -435,7 +435,7 @@ source in the repo settings (one click, done by you in Phase 0).
 
 Each phase ends with something runnable. Effort is relative (S/M/L).
 
-### Phase 0: Environment, skeleton and Shinylive spike (S)
+### Phase 0: Environment, skeleton and Shinylive spike (S) ✓ done 2026-11-03
 - renv with R 4.6.0; install shinylive, sortable, bsicons, testthat (R cleanup already done).
 - `.gitignore` fixes, commit `shiny_workout.Rproj`, folders from §3, README stub.
 - Minimal `app.R` (bslib navbar) proving in **the exported WASM build**
@@ -451,19 +451,25 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
 - Note: package versions in webR differ from local renv: shiny 1.13.0.8000 and bslib
   0.11.0 in the browser (local: shiny 1.14.0, bslib 0.12.0). Use only features present in
   the webR versions, and check them on the Diagnostics tab when it matters.
-- Actions workflow → **live "hello" URL on GitHub Pages**.
+- Actions workflow → **live "hello" URL on GitHub Pages**: deployed 2026-11-02 to
+  <https://sinomem.github.io/shiny_workout/>.
+- Note: the first CI run failed because `openssl` 2.5.0 was on CRAN but not yet on Posit
+  Package Manager, which CI installs from. Pinned 2.4.2. If this recurs, point local renv
+  at the same PPM repository so the lockfile only records versions CI can install.
 - Note: Claude's in-app browser blocks service workers, so it can't run Shinylive; WASM
   checks happen in a regular browser (local `_site/` or the live URL).
 - Note: `page_navbar(fillable = FALSE)`: with fill layout, the cards collapsed to zero
   height and Shiny skipped rendering them.
 - *Exit*: every checkbox works on the live URL. If one doesn't, we adapt the design here.
 
-### Phase 1: Workout model and YAML (M)
+### Phase 1: Workout model and YAML (M) ✓ done 2026-11-03
 - Schema v1 (incl. sides and guided reps), `workout_model.R`, `workout_yaml.R`,
   `settings.R`, `docs/workout-format.md`.
-- Example workouts (one per focus), written against placeholder ids and re-pointed in Phase 2.
+- Example workouts (one per focus, plus a plank ladder), written with free-text `name`s
+  for now; Phase 2 points them at catalog ids.
 - Full unit tests.
-- *Exit*: `compile_workout()` turns each example into the expected flat step list.
+- *Exit*: `compile_workout()` turns each example into the expected flat step list
+  (snapshot tests in `tests/testthat/_snaps/examples.md`).
 
 ### Phase 2: Catalog (L)
 - Importers for free-exercise-db, wger (snapshot), yoga-api; `vocab.yaml`; dedupe;

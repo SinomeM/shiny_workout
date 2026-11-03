@@ -1,0 +1,11 @@
+# App configuration. Users can override the defaults in the Settings panel, and a
+# workout can override them again in its own `settings:` block.
+defaults:
+  prep_seconds: 10       # "get ready" countdown before the first step
+  rest_seconds: 30       # length of a new rest step
+  reps: 10               # reps of a new rep-based step
+  exercise_seconds: 30   # length of a new timed step
+  hold_seconds: 5        # hold of a new guided-rep step
+  relax_seconds: 3       # pause between guided reps
+  switch_seconds: 5      # "switch sides" countdown between left and right
+  seconds_per_rep: 3     # used to estimate the duration of rep-based steps
