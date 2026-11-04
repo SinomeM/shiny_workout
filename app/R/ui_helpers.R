@@ -1,10 +1,3 @@
-placeholder_card <- function(title, text) {
-  card(
-    card_header(title),
-    p(class = "text-muted mb-0", text)
-  )
-}
-
 # Seconds as "m:ss", or "h:mm:ss" from one hour up. NA stays NA.
 format_duration <- function(seconds) {
   s <- round(seconds)

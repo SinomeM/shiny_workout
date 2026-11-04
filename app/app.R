@@ -20,7 +20,8 @@ ui <- page_navbar(
     tags$script(src = "actions.js"),
     tags$script(src = "catalog.js"),
     tags$script(src = "vendor/Sortable-1.15.6.min.js"),  # SortableJS, MIT licence
-    tags$script(src = "editor.js")
+    tags$script(src = "editor.js"),
+    tags$script(src = "player.js")
   ),
   nav_panel(
     "Build",
@@ -31,7 +32,7 @@ ui <- page_navbar(
     )
   ),
   nav_panel("Library", library_ui("library")),
-  nav_panel("Run", placeholder_card("Run", "Workout player (Phase 5).")),
+  nav_panel("Run", player_ui("player")),
   nav_panel("Diagnostics", diagnostics_ui("diag")),
   nav_spacer(),
   nav_item(actionLink("settings", "Settings", icon = bsicons::bs_icon("gear"))),
@@ -45,10 +46,14 @@ server <- function(input, output, session) {
   settings_server(input, output, session, user_settings, config$defaults)
   store <- library_store(input, session)
 
+  go_build <- function() nav_select("nav", "Build", session = session)
+  go_run <- function() nav_select("nav", "Run", session = session)
+
   added <- catalog_server("catalog", catalog, settings)
-  editor <- editor_server("editor", catalog, settings, added, store)
-  library_server("library", store, examples, catalog, settings, editor,
-                 go_build = function() nav_select("nav", "Build", session = session))
+  editor <- editor_server("editor", catalog, settings, added, store, go_run)
+  library_server("library", store, examples, catalog, settings, editor, go_build, go_run)
+  player_server("player", editor$workout, settings, catalog,
+                active = reactive(identical(input$nav, "Run")), go_build)
 
   observeEvent(input$about, showModal(about_modal(attr(catalog, "sources"))))
   diagnostics_server("diag")

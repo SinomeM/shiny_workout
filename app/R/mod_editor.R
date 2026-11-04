@@ -29,6 +29,8 @@ editor_ui <- function(id) {
       "Workout",
       div(
         class = "ms-auto d-flex gap-1",
+        actionButton(ns("run"), "Run", icon = bsicons::bs_icon("play-fill"), class = "btn-sm btn-success",
+                     title = "Run this workout"),
         icon_button("save", "floppy", "Save to library"),
         icon_button("download", "download", "Download as YAML"),
         icon_button("undo", "arrow-counterclockwise", "Undo"),
@@ -90,7 +92,7 @@ editor_ui <- function(id) {
   )
 }
 
-editor_server <- function(id, catalog, settings, added, store) {
+editor_server <- function(id, catalog, settings, added, store, go_run) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     state <- reactiveValues(
@@ -129,6 +131,7 @@ editor_server <- function(id, catalog, settings, added, store) {
       updateActionButton(session, "redo", disabled = !length(state$redo))
     })
     observeEvent(input$new, commit(with_uids(new_workout("New workout"))))
+    observeEvent(input$run, go_run())
 
     load_workout <- function(w, library_id = NULL) {
       w <- with_uids(strip_uids(w))
@@ -171,7 +174,7 @@ editor_server <- function(id, catalog, settings, added, store) {
         w <- tryCatch(workout_from_yaml(draft$yaml %||% text), error = function(e) NULL)
         if (!is.null(w) && is.list(w$steps %||% list())) {
           w <- with_uids(w)
-          attr(w, "library_id") <- draft$id
+          if (is.character(draft$id) && length(draft$id) == 1) attr(w, "library_id") <- draft$id
           state$w <- w
         }
       }
@@ -181,7 +184,7 @@ editor_server <- function(id, catalog, settings, added, store) {
       if (state$loaded) {
         draft <- list(id = attr(state$w, "library_id"), yaml = workout_to_yaml(state$w))
         session$sendCustomMessage("sw-storage-set", list(
-          key = draft_key, value = as.character(jsonlite::toJSON(draft, auto_unbox = TRUE))
+          key = draft_key, value = as.character(jsonlite::toJSON(draft, auto_unbox = TRUE, null = "null"))
         ))
       }
     })

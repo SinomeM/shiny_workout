@@ -129,14 +129,14 @@ library_ui <- function(id) {
       card_header("Examples"),
       card_body(
         fillable = FALSE,
-        p(class = "small text-muted mb-1", "Opening an example makes a copy you can change."),
+        p(class = "small text-muted mb-1", "Opening or running an example puts a copy in the editor."),
         div(`data-sw-actions` = ns("action"), uiOutput(ns("examples")))
       )
     )
   )
 }
 
-library_server <- function(id, store, examples, catalog, settings, editor, go_build) {
+library_server <- function(id, store, examples, catalog, settings, editor, go_build, go_run) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     pending <- reactiveVal(NULL)   # id waiting for rename / delete confirmation
@@ -157,7 +157,8 @@ library_server <- function(id, store, examples, catalog, settings, editor, go_bu
       }
       div(class = "sw-lib-list mb-3", lapply(entries, function(e) {
         library_row(e$id, e$workout, describe(e$workout), saved = e$updated,
-                    buttons = list(c("open", "box-arrow-up-right", "Open"),
+                    buttons = list(c("run", "play-fill", "Run"),
+                                   c("open", "box-arrow-up-right", "Open"),
                                    c("duplicate", "copy", "Duplicate"),
                                    c("rename", "pencil", "Rename"),
                                    c("download", "download", "Download"),
@@ -168,7 +169,8 @@ library_server <- function(id, store, examples, catalog, settings, editor, go_bu
     output$examples <- renderUI({
       div(class = "sw-lib-list", lapply(names(examples), function(key) {
         library_row(key, examples[[key]], describe(examples[[key]]),
-                    buttons = list(c("open_example", "box-arrow-up-right", "Open a copy"),
+                    buttons = list(c("run_example", "play-fill", "Run"),
+                                   c("open_example", "box-arrow-up-right", "Open a copy"),
                                    c("download_example", "download", "Download")))
       }))
     })
@@ -184,6 +186,7 @@ library_server <- function(id, store, examples, catalog, settings, editor, go_bu
       switch(
         a$op,
         open = if (!is.null(e)) { editor$load(e$workout, e$id); go_build() },
+        run = if (!is.null(e)) { editor$load(e$workout, e$id); go_run() },
         duplicate = store$duplicate(a$id),
         download = if (!is.null(e)) download(e$workout),
         rename = if (!is.null(e)) {
@@ -203,6 +206,7 @@ library_server <- function(id, store, examples, catalog, settings, editor, go_bu
           ))
         },
         open_example = { editor$load(examples[[a$id]], NULL); go_build() },
+        run_example = { editor$load(examples[[a$id]], NULL); go_run() },
         download_example = download(examples[[a$id]])
       )
     })

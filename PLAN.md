@@ -528,6 +528,32 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
 - `player.js` state machine, layout, keyboard + touch, overtime, sides, guided reps,
   sounds, voice, wake lock, fullscreen, end summary + log.
 - *Exit*: every example runs end to end, with no drift against a stopwatch over 20+ min.
+- Status (2026-11-05): ✓ done, checked in regular Shiny and the WASM build (Chrome; Firefox
+  except voice, see below). The 20+ min stopwatch check is still open.
+  `player.R` (pure, tested: plan, spoken text, session log) + `mod_player.R` + `www/player.js`.
+  With the clock driven by hand, all 7 examples run end to end and the active time equals
+  the planned time exactly; with 7 s gaps between ticks (a throttled background tab) and a
+  2 min pause, auto steps still end on their planned time. A real 20+ min stopwatch check
+  is left for you.
+- Notes:
+  - Auto steps end at start + duration, not at the tick that notices it, so a late tick
+    never shifts the steps after it. Manual steps start when you press Space.
+  - The Run tab plays the workout open in the editor. "Run" buttons in the editor and on
+    each library / example row put it there first.
+  - ← redoes the previous step (its earlier time is dropped from the log); stopping logs
+    the step in progress as "stopped".
+  - Full screen falls back to filling the browser window when the browser refuses it.
+  - Player preferences (sound, voice, chosen voice, volume) live in localStorage as
+    `shiny_workout.player`, separate from the R settings.
+  - Voice: browsers tend to use the first voice in their list, which on a Mac is a
+    novelty voice (Albert: low, slow, robotic). The player skips the novelty voices and
+    picks a natural English one (Premium / Enhanced first, then Daniel, Samantha, Karen,
+    Moira…, preferring the browser's region); a picker next to the voice button overrides it.
+  - Known limitation: in Firefox on macOS every phrase crackles at the end, whatever the
+    voice, volume or beeps (tested one change at a time). Chrome is fine. The player shows
+    a short note in Firefox when voice is on; sounds (beeps) work in both.
+  - The browser pane I test with doesn't run IntersectionObserver while hidden, so Shiny
+    outputs on other tabs don't render there; tests drive inputs directly instead.
 
 ### Phase 6: Polish and phone usability (M)
 - Responsive checks at phone width, dark mode, loading screen, keyboard-shortcut help
