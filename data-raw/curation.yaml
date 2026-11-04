@@ -1,0 +1,93 @@
+# Hand curation of the imported catalog, applied by data-raw/build_catalog.R in this
+# order: exclude -> set -> merge -> automatic same-name merge (except no_merge).
+
+# Dropped entirely: non-English, duplicates, gym or routine entries, junk.
+exclude:
+  - wger:1114   # "Rest (for timed workouts)": not an exercise
+  - wger:1119   # Spanish name, machine row
+  - wger:1120   # Spanish name, machine row
+  - wger:1574   # "Schwimmen" (German), swimming
+  - wger:1914   # Italian name
+  - wger:1778   # Spanish name
+  - wger:1285   # French name
+  - wger:1924   # "3008 Abdominal Crunch": machine
+  - wger:1280   # pull-down machine
+  - wger:512    # seated row machine
+  - wger:510    # needs a bench
+  - wger:1381   # "Upper Back": no clear exercise
+  - wger:927    # suspension trainer
+  - wger:2671   # Radio Taiso: a whole routine
+  - wger:1196   # "Wall Drills": unclear
+  - wger:1019   # side plank, right only (wger:580 covers it)
+  - wger:1020   # pistol squat, right only (wger:456 covers it)
+  - wger:1203   # calf raise, left only (wger:702 covers it)
+  - wger:1021   # calf raise, right only
+  - wger:989    # right side of wger:988
+  - wger:1029   # right side of wger:1028
+  - wger:992    # right side of wger:991
+  - wger:987    # right side of wger:986
+  - wger:1014   # right side of wger:1013
+  - wger:1009   # right side of wger:1008
+  - wger:1231   # right side of wger:1230
+  - wger:1233   # right side of wger:1232
+
+# Name patterns dropped from imported (not curated) entries.
+exclude_name_patterns:
+  - "\\(custom\\)"
+
+# Field fixes. Renamed entries can then merge with same-name ones automatically.
+set:
+  fedb:Pushups: {name: Push-ups}
+  fedb:Flat_Bench_Leg_Pull-In: {equipment: [bench]}
+  wger:988: {name: Bulgarian split squat, unilateral: true}
+  wger:1028: {name: Quadruped thoracic rotation, unilateral: true}
+  wger:991: {name: Split Squats, unilateral: true}
+  wger:986: {name: Side split squat, unilateral: true}
+  wger:1013: {name: Levator scapulae stretch, unilateral: true}
+  wger:1008: {name: Side Neck Stretch, unilateral: true}
+  wger:1230: {name: Triceps Stretch, unilateral: true}
+  wger:1232: {name: Standing biceps stretch, unilateral: true}
+  wger:702: {name: Single-leg calf raise}
+  wger:57: {name: Bear walk}
+  wger:1324: {name: Bodyweight lunge}
+  wger:1312: {name: Bodyweight squat}
+  wger:1318: {name: High knee skips}
+  wger:1015: {name: Neck circles}
+  wger:1004: {name: Shoulder rotations}
+  wger:1462: {name: Punches}
+  wger:1244: {name: Cow-cat}
+  wger:1938: {focus: [mobility, yoga]}
+  wger:1592: {focus: [mobility]}
+  wger:1591: {focus: [mobility]}
+  wger:1940: {focus: [mobility, physio]}
+  wger:2564: {focus: [mobility, physio]}
+
+# keep: [ids merged into it]. The kept entry gains the others' names as aliases.
+merge:
+  fedb:Plank: [wger:1307]
+  fedb:Crunches: [wger:1933]
+  fedb:Arm_Circles: [wger:994, wger:995]
+  wger:320: [wger:1314]
+  wger:376: [wger:377]
+  wger:265: [wger:1906, wger:292]
+  wger:2454: [wger:1083]
+  wger:1572: [wger:957]
+  wger:1015: [wger:1016]
+  wger:1004: [wger:1005]
+  wger:1857: [wger:1950]
+  wger:1938: [wger:1244]
+  wger:1408: [wger:718]
+  cur:physio_clamshell: [wger:1823]
+  cur:physio_quad_sets: [wger:2617]
+  cur:physio_chin_tuck: [wger:1006]
+  cur:physio_wall_slides: [wger:716]
+  cur:physio_terminal_knee_extension: [wger:2494]
+  cur:physio_side_lying_hip_abduction: [wger:1202]
+  cur:physio_pelvic_tilt: [wger:2488]
+  cur:physio_abdominal_bracing: [wger:1828]
+  cur:physio_knee_to_chest: [wger:1452, fedb:One_Knee_To_Chest]
+  cur:cobra_pose: [wger:1450]
+
+# Same name, different exercise: never merge these automatically.
+no_merge:
+  - wger:135    # "Butterfly": a machine chest fly, not the butterfly stretch

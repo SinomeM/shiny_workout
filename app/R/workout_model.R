@@ -54,8 +54,8 @@ step_label <- function(step, catalog = NULL) {
   if (!is.null(step$name)) return(step$name)
   if (!is.null(step$exercise)) {
     if (is.null(catalog)) return(step$exercise)
-    hit <- catalog$name[match(step$exercise, catalog$id)]
-    return(if (is.na(hit)) paste0("Unknown exercise (", step$exercise, ")") else hit)
+    row <- catalog_row(catalog, step$exercise)
+    return(if (is.na(row)) paste0("Unknown exercise (", step$exercise, ")") else catalog$name[row])
   }
   if (step$type == "repeat") return(sprintf("Repeat × %d", step$times))
   unname(type_labels[[step$type]])
@@ -178,7 +178,7 @@ validate_workout <- function(w, catalog = NULL) {
     if (type == "exercise" && is.null(s$exercise) && is.null(s$name)) {
       err(at, "exercise steps need an exercise id or a name.")
     }
-    if (!is.null(catalog) && is_text(s$exercise) && !s$exercise %in% catalog$id) {
+    if (!is.null(catalog) && is_text(s$exercise) && is.na(catalog_row(catalog, s$exercise))) {
       warn(at, "unknown exercise '", s$exercise, "'.")
     }
   }

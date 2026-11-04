@@ -28,7 +28,17 @@ Then open <http://127.0.0.1:8008>. Shinylive needs a browser with service worker
 Pushes to `main` are tested, exported and deployed to GitHub Pages by
 `.github/workflows/deploy.yml`.
 
+### Exercise catalog
+
+`app/data/exercises.json` is generated; don't edit it by hand. Change the curated files,
+`data-raw/vocab.yaml` or `data-raw/curation.yaml`, then rebuild it and `CREDITS.md`:
+
+```sh
+Rscript data-raw/build_catalog.R   # needs network on first run (pinned downloads)
+Rscript data-raw/fetch_wger.R      # only to refresh the wger snapshot
+```
+
 ## License
 
-Code: GPL-3.0. The exercise catalog (added in a later phase) combines public-domain and
-CC-BY-SA sources and is published under CC-BY-SA 4.0; see `CREDITS.md` once it exists.
+Code: GPL-3.0. The exercise catalog combines public-domain, MIT and CC-BY-SA sources and is
+published under CC-BY-SA 4.0; see [CREDITS.md](CREDITS.md).

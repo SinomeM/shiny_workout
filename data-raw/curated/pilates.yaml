@@ -1,0 +1,406 @@
+# Classic mat pilates repertoire. Original text, CC-BY-SA 4.0 as part of the catalog.
+# Fields: see data-raw/curated/README.md.
+
+- id: pilates_hundred
+  name: The hundred
+  aliases: [Hundreds]
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  default_target: seconds
+  instructions:
+    - Lie on your back, knees bent to tabletop, arms long by your sides.
+    - Curl your head and shoulders off the mat and reach your arms toward your feet.
+    - Pump the arms up and down in small, quick beats, breathing in for 5 beats and out for 5.
+    - To make it harder, straighten the legs to a 45 degree angle. Keep the lower back on the mat.
+
+- id: pilates_roll_up
+  name: Roll-up
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  instructions:
+    - Lie on your back with legs long and arms reaching overhead.
+    - Bring the arms over the chest, nod the chin and peel the spine off the mat one vertebra at a time.
+    - Reach forward over the legs with a rounded back.
+    - Roll back down slowly with control, ending with the arms overhead.
+
+- id: pilates_roll_down
+  name: Roll-down
+  aliases: [Half roll back]
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  instructions:
+    - Sit tall with knees bent, feet flat and hands lightly behind the thighs.
+    - Tuck the pelvis and roll back halfway, keeping the back rounded.
+    - Pause, then use the abs to return to sitting tall.
+
+- id: pilates_single_leg_circles
+  name: Single-leg circles
+  aliases: [One leg circle]
+  focus: [pilates, core, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs, hip_flexors]
+  unilateral: true
+  instructions:
+    - Lie on your back, one leg long on the mat and the other pointing to the ceiling.
+    - Draw small circles with the raised leg, crossing the body and coming back around.
+    - Keep the pelvis still and both hips on the mat.
+    - Reverse the direction halfway through.
+
+- id: pilates_rolling_like_a_ball
+  name: Rolling like a ball
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  instructions:
+    - Sit on the mat, hug your shins and lift the feet so you balance just behind the sit bones.
+    - Keep the back rounded and the chin tucked.
+    - Roll back to the shoulder blades, then roll up to balance again without the feet touching down.
+
+- id: pilates_single_leg_stretch
+  name: Single-leg stretch
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  instructions:
+    - Lie on your back, curl the head and shoulders up and hug one knee toward the chest.
+    - Stretch the other leg long at about 45 degrees.
+    - Switch legs with control, changing the hands each time.
+    - Keep the lower back pressed into the mat.
+
+- id: pilates_double_leg_stretch
+  name: Double-leg stretch
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  instructions:
+    - Lie on your back with the head and shoulders curled up and both knees hugged in.
+    - Breathe in and reach the arms overhead and the legs long and low at the same time.
+    - Breathe out, circle the arms around and hug the knees back in.
+
+- id: pilates_scissors
+  name: Scissors
+  aliases: [Single straight leg stretch]
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs]
+  secondary_muscles: [hamstrings, hip_flexors]
+  instructions:
+    - Lie on your back, curl the head and shoulders up and lift both legs straight to the ceiling.
+    - Hold one leg near the ankle or calf and lower the other toward the mat.
+    - Switch legs with a double pulse, keeping the torso still.
+
+- id: pilates_criss_cross
+  name: Criss-cross
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [obliques, abs]
+  instructions:
+    - Lie on your back with hands behind the head and knees in tabletop.
+    - Curl up and rotate the ribs toward one knee while the other leg stretches long.
+    - Switch sides slowly, keeping the elbows wide and the pelvis still.
+
+- id: pilates_spine_stretch_forward
+  name: Spine stretch forward
+  focus: [pilates, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back]
+  secondary_muscles: [hamstrings]
+  instructions:
+    - Sit tall with legs a little wider than the hips and feet flexed.
+    - Breathe out and round forward from the top of the head, reaching the arms forward.
+    - Breathe in and restack the spine to sitting tall.
+
+- id: pilates_open_leg_rocker
+  name: Open-leg rocker
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs]
+  secondary_muscles: [hamstrings]
+  instructions:
+    - Balance behind the sit bones holding the ankles, legs straight in a V.
+    - Round the back and roll back to the shoulder blades.
+    - Roll up to balance again without letting the legs drop.
+
+- id: pilates_corkscrew
+  name: Corkscrew
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [obliques, abs]
+  instructions:
+    - Lie on your back with legs together pointing to the ceiling and arms by your sides.
+    - Circle both legs to one side, down, and around to the other side.
+    - Keep the shoulders down and the movement small and controlled. Reverse each time.
+
+- id: pilates_saw
+  name: Saw
+  focus: [pilates, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [obliques]
+  secondary_muscles: [hamstrings, lower_back]
+  unilateral: true
+  instructions:
+    - Sit tall with legs wide and arms out to the sides.
+    - Twist toward one leg, then reach the opposite hand past the little toe as if sawing it off.
+    - Roll back up and untwist to the centre.
+
+- id: pilates_swan
+  name: Swan prep
+  focus: [pilates, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back]
+  secondary_muscles: [upper_back, glutes]
+  instructions:
+    - Lie face down with hands under the shoulders and elbows close to the body.
+    - Lengthen through the crown of the head and lift the chest a few centimetres.
+    - Keep the abs lifted and the neck long, then lower with control.
+
+- id: pilates_single_leg_kick
+  name: Single-leg kick
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [hamstrings]
+  secondary_muscles: [glutes, abs]
+  instructions:
+    - Lie face down propped on your forearms, legs long.
+    - Kick one heel toward the glute twice, then lower it and switch legs.
+    - Keep the abs lifted away from the mat and the chest open.
+
+- id: pilates_double_leg_kick
+  name: Double-leg kick
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [hamstrings, upper_back]
+  secondary_muscles: [glutes]
+  instructions:
+    - Lie face down, cheek on the mat, hands clasped high on the back.
+    - Kick both heels toward the glutes three times.
+    - Stretch the legs long, reach the hands toward the feet and lift the chest. Switch the cheek each time.
+
+- id: pilates_neck_pull
+  name: Neck pull
+  focus: [pilates, core]
+  equipment: [mat]
+  level: expert
+  primary_muscles: [abs]
+  secondary_muscles: [hamstrings]
+  instructions:
+    - Lie on your back with legs long and hands behind the head.
+    - Curl up and over the legs, then stack the spine to sit tall.
+    - Lean back with a straight spine, then roll down one vertebra at a time.
+
+- id: pilates_spine_twist
+  name: Spine twist
+  focus: [pilates, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [obliques]
+  instructions:
+    - Sit tall with legs together, feet flexed and arms out to the sides.
+    - Breathe out and twist from the waist, pulsing twice.
+    - Return to the centre and twist the other way. Keep the hips still.
+
+- id: pilates_side_kick_front_back
+  name: Side kick, front and back
+  aliases: [Side kick series]
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [glutes, abductors]
+  secondary_muscles: [obliques]
+  unilateral: true
+  instructions:
+    - Lie on your side with legs slightly forward of the hips and your head supported.
+    - Lift the top leg to hip height and swing it forward with a double pulse.
+    - Sweep it back behind you, keeping the torso still.
+
+- id: pilates_side_kick_up_down
+  name: Side kick, up and down
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abductors, glutes]
+  unilateral: true
+  instructions:
+    - Lie on your side, legs stacked and slightly forward.
+    - Kick the top leg up toward the ceiling with a turned-out foot.
+    - Lower it slowly with resistance, as if pushing through water.
+
+- id: pilates_side_leg_circles
+  name: Side-lying leg circles
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abductors, glutes]
+  unilateral: true
+  instructions:
+    - Lie on your side and lift the top leg to hip height.
+    - Draw small circles with the leg, then reverse.
+    - Keep the waist lifted off the mat.
+
+- id: pilates_inner_thigh_lifts
+  name: Inner thigh lifts
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [adductors]
+  unilateral: true
+  instructions:
+    - Lie on your side and cross the top leg over, foot on the floor in front of you.
+    - Lift the bottom leg a few centimetres off the mat and lower it with control.
+
+- id: pilates_teaser
+  name: Teaser
+  focus: [pilates, core]
+  equipment: [mat]
+  level: expert
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  instructions:
+    - Lie on your back with legs at 45 degrees and arms overhead.
+    - Roll up into a V, reaching the arms parallel to the legs.
+    - Balance for a moment, then roll down with control.
+
+- id: pilates_teaser_prep
+  name: Teaser prep
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  unilateral: true
+  instructions:
+    - Lie on your back with knees bent and one leg extended at the height of the other knee.
+    - Roll up, reaching toward the extended foot.
+    - Roll back down slowly, keeping the leg still.
+
+- id: pilates_swimming
+  name: Swimming
+  focus: [pilates, strength, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back, glutes]
+  secondary_muscles: [upper_back, shoulders]
+  default_target: seconds
+  instructions:
+    - Lie face down with arms and legs long.
+    - Lift the arms, chest and legs slightly off the mat.
+    - Flutter opposite arm and leg in small, quick movements while breathing steadily.
+
+- id: pilates_leg_pull_front
+  name: Leg pull front
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs, shoulders]
+  secondary_muscles: [glutes]
+  instructions:
+    - Start in a high plank with the body in one line.
+    - Lift one leg a few centimetres, keeping the hips level.
+    - Lower it and switch legs.
+
+- id: pilates_leg_pull_back
+  name: Leg pull back
+  focus: [pilates, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [hamstrings, glutes]
+  secondary_muscles: [triceps, abs]
+  instructions:
+    - Sit with legs long, hands behind the hips, and lift into a reverse plank.
+    - Kick one leg up toward the ceiling and lower it without dropping the hips.
+    - Switch legs.
+
+- id: pilates_shoulder_bridge
+  name: Shoulder bridge
+  focus: [pilates, strength]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [glutes, hamstrings]
+  unilateral: true
+  instructions:
+    - Lie on your back with knees bent and lift the hips into a bridge.
+    - Extend one leg to the ceiling, then lower it to knee height and lift again.
+    - Keep the pelvis level throughout.
+
+- id: pilates_pelvic_curl
+  name: Pelvic curl
+  aliases: [Articulating bridge]
+  focus: [pilates, mobility, physio]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [glutes]
+  secondary_muscles: [hamstrings, abs]
+  instructions:
+    - Lie on your back with knees bent and feet hip-width apart.
+    - Tilt the pelvis and peel the spine off the mat one vertebra at a time into a bridge.
+    - Roll back down slowly, top of the spine first.
+
+- id: pilates_seal
+  name: Seal
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  instructions:
+    - Sit with knees open, hands threaded under the legs holding the ankles, feet together.
+    - Balance behind the sit bones, roll back and clap the feet three times.
+    - Roll up to balance and clap the feet again.
+
+- id: pilates_mermaid
+  name: Mermaid
+  aliases: [Side stretch, seated]
+  focus: [pilates, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [obliques, lats]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Sit with both legs folded to one side.
+    - Reach the far arm overhead and bend sideways over the legs.
+    - Return through the centre and stretch the other way with the other hand on the floor.
+
+- id: pilates_chest_lift
+  name: Chest lift
+  focus: [pilates, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  instructions:
+    - Lie on your back with knees bent and hands behind the head.
+    - Breathe out and curl the head, neck and shoulders off the mat.
+    - Breathe in and lower slowly.
+
+- id: pilates_toe_taps
+  name: Toe taps, tabletop
+  focus: [pilates, core, physio]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  instructions:
+    - Lie on your back with both knees in tabletop and the lower back neutral.
+    - Lower one foot to tap the mat, keeping the knee bent.
+    - Return it to tabletop and switch legs without arching the back.

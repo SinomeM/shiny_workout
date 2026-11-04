@@ -7,7 +7,7 @@ tags:
   - cardio
 steps:
   - type: warmup
-    name: March in place
+    exercise: wger:1584
     seconds: 120
     advance: auto
   - type: repeat
@@ -15,28 +15,28 @@ steps:
     skip_last_rest: true
     steps:
       - type: exercise
-        name: Squat jumps
+        exercise: wger:614
         seconds: 40
         advance: auto
       - type: rest
         seconds: 20
         advance: auto
       - type: exercise
-        name: Mountain climbers
+        exercise: fedb:Mountain_Climbers
         seconds: 40
         advance: auto
       - type: rest
         seconds: 20
         advance: auto
       - type: exercise
-        name: Burpees
+        exercise: wger:132
         seconds: 40
         advance: auto
       - type: rest
         seconds: 20
         advance: auto
       - type: exercise
-        name: High knees
+        exercise: wger:983
         seconds: 40
         advance: auto
       - type: rest

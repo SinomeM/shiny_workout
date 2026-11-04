@@ -7,53 +7,53 @@ tags:
   - mat
 steps:
   - type: warmup
-    name: Easy seat, breathing
+    exercise: cur:easy_seat
     seconds: 60
     advance: auto
   - type: repeat
     times: 3
     steps:
       - type: exercise
-        name: Mountain pose
+        exercise: cur:mountain_pose
         seconds: 20
         advance: auto
       - type: exercise
-        name: Forward fold
+        exercise: yoga:38
         seconds: 30
         advance: auto
       - type: exercise
-        name: Downward-facing dog
+        exercise: yoga:15
         seconds: 30
         advance: auto
       - type: exercise
-        name: Cobra
+        exercise: cur:cobra_pose
         seconds: 20
         advance: auto
   - type: exercise
-    name: Warrior II
+    exercise: yoga:45
     seconds: 30
     sides: 2
     advance: auto
   - type: exercise
-    name: Triangle
+    exercise: yoga:42
     seconds: 30
     sides: 2
     advance: auto
   - type: exercise
-    name: Tree pose
+    exercise: yoga:41
     seconds: 30
     sides: 2
     advance: auto
   - type: exercise
-    name: Seated forward fold
+    exercise: yoga:30
     seconds: 45
     advance: auto
   - type: exercise
-    name: Supine twist
+    exercise: cur:supine_twist
     seconds: 30
     sides: 2
     advance: auto
   - type: cooldown
-    name: Corpse pose
+    exercise: yoga:11
     advance: manual
     notes: Stay as long as you like, then press Space.

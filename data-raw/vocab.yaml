@@ -1,0 +1,133 @@
+# Maps each source's vocabulary onto ours. Used by data-raw/build_catalog.R.
+#
+# Our equipment: bodyweight, mat, exercise_ball, bands, foam_roller, dumbbell, barbell,
+#   ez_bar, kettlebell, medicine_ball, cable, machine, bench, pullup_bar, other
+# Our muscles: abs, obliques, chest, shoulders, biceps, triceps, forearms, lats,
+#   upper_back, lower_back, glutes, hip_flexors, quads, hamstrings, adductors,
+#   abductors, calves, neck
+# Our focus: strength, hiit, core, mobility, yoga, pilates, physio
+
+equipment:
+  fedb:
+    body only: bodyweight
+    bands: bands
+    exercise ball: exercise_ball
+    foam roll: foam_roller
+    medicine ball: medicine_ball
+    kettlebells: kettlebell
+    e-z curl bar: ez_bar
+    barbell: barbell
+    dumbbell: dumbbell
+    cable: cable
+    machine: machine
+    other: other
+  wger:
+    none (bodyweight exercise): bodyweight
+    Gym mat: mat
+    Swiss Ball: exercise_ball
+    Resistance band: bands
+    Barbell: barbell
+    SZ-Bar: ez_bar
+    Dumbbell: dumbbell
+    Kettlebell: kettlebell
+    Cable machine: cable
+    Bench: bench
+    Incline bench: bench
+    Pull-up bar: pullup_bar
+
+# wger often leaves equipment empty or says "bodyweight" for gym exercises. When a
+# wger name matches one of these patterns (case-insensitive), that equipment replaces
+# "bodyweight". Checked in order; every match applies.
+name_equipment:
+  - pattern: "machine|smith|multi ?press|hackenschmi|hack squat|leg press|pec deck|lat pull ?down|pulldown|leg curls? \\(|leg curl$|leg extension|pendular|belt squat|rotary torso|roman chair|hyperextension|seated back extension|glute drive|captain's chair|pullover|preacher|calf press|hip adduction|hip abduction \\(|seated row|chest press|shoulder press|incline .*press|decline .*press|skull crush|butterfly$|butterfly \\(|butterfly narrow|butterfly reverse|leg presses|standing rope"
+    equipment: machine
+  - pattern: "treadmill|stationary bike|recumbent bike|cycling|elliptical|stair ?master|climbmill|ski machine|rowing machine"
+    equipment: machine
+  - pattern: "pull[- ]?ups?\\b|chin[- ]?ups?|deadhang|front lever|muscle[- ]?up|typewriter|archer pull|scapular pull|recruitment pulls|sloper|fingerboard"
+    equipment: pullup_bar
+  - pattern: "dumbbell|kroc row|weighted"
+    equipment: dumbbell
+  - pattern: "barbell|deadlift|trap bar|t-bar|rack |overhead squat|push press|high pull|upright row|good morning$|sumo squats? with"
+    equipment: barbell
+  - pattern: "swim|kickboard|kick with board|bobbing|stroke-and-roll|trx|\\brings?\\b|parallettes|parallel bar|dips\\b|plate|sled|battle rope|boxing|bag training|jump rope|skipping|medicine ball|wall balls|ball slams|flexbar|bosu|blackroll|lax ball|towel|glider|hand grip|box jump|box squat|box handstand|1 leg box|ab wheel|leg wheel|bench dips|chair dips|run\\b|running|jogging|walking$|zone 2"
+    equipment: other
+
+muscles:
+  fedb:
+    abdominals: abs
+    abductors: abductors
+    adductors: adductors
+    biceps: biceps
+    calves: calves
+    chest: chest
+    forearms: forearms
+    glutes: glutes
+    hamstrings: hamstrings
+    lats: lats
+    lower back: lower_back
+    middle back: upper_back
+    neck: neck
+    quadriceps: quads
+    shoulders: shoulders
+    traps: upper_back
+    triceps: triceps
+  wger:
+    Anterior deltoid: shoulders
+    Biceps brachii: biceps
+    Biceps femoris: hamstrings
+    Brachialis: biceps
+    Gastrocnemius: calves
+    Gluteus maximus: glutes
+    Latissimus dorsi: lats
+    Obliquus externus abdominis: obliques
+    Pectoralis major: chest
+    Quadriceps femoris: quads
+    Rectus abdominis: abs
+    Serratus anterior: chest
+    Soleus: calves
+    Trapezius: upper_back
+    Triceps brachii: triceps
+
+# Focus from the source's category.
+focus:
+  fedb:
+    strength: [strength]
+    stretching: [mobility]
+    plyometrics: [hiit]
+    cardio: [hiit]
+    powerlifting: [strength]
+    olympic weightlifting: [strength]
+    strongman: [strength]
+  wger:
+    Abs: [core]
+    Arms: [strength]
+    Back: [strength]
+    Calves: [strength]
+    Chest: [strength]
+    Legs: [strength]
+    Shoulders: [strength]
+    Cardio: [hiit]
+  yoga:
+    Core Yoga: [yoga, core]
+    default: [yoga]
+
+# Extra focus from the name (all sources). Abs or obliques as a primary muscle also
+# add "core".
+name_focus:
+  - pattern: "stretch|mobility|circles|rotation|rotations|foam roll|smr|\\bcars\\b|cat[- ]cow|cow[- ]cat|child's pose|cobra|pigeon|open book|wall slides|wall angels|toe touch|neck|wrist|ankle|dislocates|limber"
+    focus: mobility
+  - pattern: "plank|crunch|sit[- ]?ups?|hollow|dead ?bug|bird ?dog|v-up|leg raise|ab wheel|l-sit|flutter|scissors|russian twist|heel touches|bicycle|superman|vacuum|draw-in|pelvic tilt|dragon[- ]flag"
+    focus: core
+  - pattern: "clamshell|terminal knee|quad sets|heel slide|chin tuck|scapular retraction|pelvic tilt|kegel|dorsiflexion|plantarflexion|draw-in|wall slides|external rotation|internal rotation|straight[- ]leg raise|ankle|tibialis|balance|nordic|monster walk|lateral walk|side[- ]lying hip|hip abduction|bird dog|dead ?bug|wrist"
+    focus: physio
+  - pattern: "roll[- ]?down|roll[- ]?up|hundred|scissors|teaser|swan|corkscrew|single[- ]leg stretch|side kick|leg pull (front|back)|saw\\b"
+    focus: pilates
+  - pattern: "burpee|jumping jack|mountain climber|high knee|squat jump|jump squat|tuck jump|skater|plank jack|squat thrust|star jump|bronco|step jack|punches"
+    focus: hiit
+
+# A suggested target of seconds (instead of reps) for holds and stretches. fedb
+# "static" exercises, stretching and yoga poses are holds too.
+hold_pattern: "plank|hold|wall[- ]?sit|wall squat|stretch|isometric|l-sit|hollow|\\bpose\\b|stance|hang|meditation|breathing|foam roll|vacuum|planche|lever|split|pancake|happy baby|child's pose|sphinx|cobra|pigeon|frog stand|handstand|jogging|run\\b|walking|march|jump rope|skipping|high knees|mountain climbers|jumping jacks|battle rope|cycling|elliptical"
+
+# Usually done one side at a time (suggests `sides: 2`).
+unilateral_pattern: "single[- ]leg|one[- ]leg|one[- ]legged|single[- ]arm|one[- ]arm|side plank|side[- ]lying|unilateral|split squat|pistol|step[- ]?ups?|clamshell|fire hydrant|kickback|pigeon|warrior|triangle|\\btree\\b|half[- ]moon|eagle|side angle|knee to chest|lying figure four|piriformis|hip flexor|quad stretch|quadriceps stretch|hamstring stretch|calf stretch|levator|sleeper|thoracic rotation|open book|crossbody|cross-body|leg swings|lunge stretch|runner's stretch|runners lunge|lord of the fishes|hand to toe|crescent|low lunge|king pigeon|wild thing|splits$|single-leg|shinbox|90/90 hip|90/90 hamstring"

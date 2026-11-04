@@ -53,3 +53,6 @@ _site/
 # macOS
 .DS_Store
 .claude/
+
+# Catalog source downloads
+data-raw/cache/

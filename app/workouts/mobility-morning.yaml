@@ -10,40 +10,40 @@ settings:
   prep_seconds: 5
 steps:
   - type: exercise
-    name: Neck rolls
+    exercise: cur:neck_rolls
     seconds: 45
     advance: auto
   - type: exercise
-    name: Shoulder rolls
+    exercise: cur:shoulder_rolls
     seconds: 45
     advance: auto
   - type: exercise
-    name: Thoracic rotation
+    exercise: cur:thoracic_rotation
     reps: 8
     sides: 2
     advance: manual
   - type: exercise
-    name: Hip circles
+    exercise: wger:1862
     reps: 10
     sides: 2
     advance: manual
   - type: exercise
-    name: World's greatest stretch
+    exercise: fedb:Worlds_Greatest_Stretch
     reps: 5
     sides: 2
     advance: manual
   - type: exercise
-    name: Foam roller, upper back
+    exercise: cur:foam_roller_upper_back
     seconds: 60
     advance: auto
     weight: foam roller
   - type: exercise
-    name: Hamstring stretch
+    exercise: fedb:Hamstring_Stretch
     seconds: 45
     sides: 2
     advance: auto
   - type: exercise
-    name: Ankle circles
+    exercise: fedb:Ankle_Circles
     reps: 10
     sides: 2
     advance: manual

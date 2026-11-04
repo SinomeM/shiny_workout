@@ -1,0 +1,341 @@
+# Common rehab and prehab exercises. Original text, CC-BY-SA 4.0 as part of the catalog.
+# General examples, not medical advice: follow your physiotherapist's prescription.
+
+- id: physio_heel_slides
+  name: Heel slides
+  focus: [physio, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [hamstrings]
+  secondary_muscles: [quads]
+  unilateral: true
+  instructions:
+    - Lie on your back with legs straight.
+    - Slide one heel toward your bottom, bending the knee as far as is comfortable.
+    - Slide it back out slowly.
+
+- id: physio_quad_sets
+  name: Quad sets
+  aliases: [Static quads, Isometric quadriceps]
+  focus: [physio, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [quads]
+  unilateral: true
+  instructions:
+    - Sit or lie with the leg straight, a small towel roll under the knee if you like.
+    - Tighten the thigh to press the back of the knee down, pulling the kneecap up.
+    - Hold for the set time, then relax fully.
+
+- id: physio_straight_leg_raise
+  name: Straight-leg raise
+  aliases: [SLR]
+  focus: [physio, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [quads, hip_flexors]
+  unilateral: true
+  instructions:
+    - Lie on your back with one knee bent and the other leg straight.
+    - Tighten the thigh of the straight leg and lift it to the height of the bent knee.
+    - Hold briefly, then lower slowly without letting the knee bend.
+
+- id: physio_short_arc_quads
+  name: Short arc quads
+  focus: [physio, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [quads]
+  unilateral: true
+  instructions:
+    - Lie on your back with a rolled towel or cushion under one knee.
+    - Straighten the knee to lift the heel off the floor, keeping the back of the knee on the roll.
+    - Hold briefly and lower slowly.
+
+- id: physio_terminal_knee_extension
+  name: Terminal knee extension, band
+  aliases: [TKE]
+  focus: [physio, strength]
+  equipment: [bands]
+  level: beginner
+  primary_muscles: [quads]
+  unilateral: true
+  instructions:
+    - Loop a band around a fixed point and behind one knee, standing with the knee slightly bent.
+    - Straighten the knee fully against the band, squeezing the thigh.
+    - Bend the knee slowly back to the start.
+
+- id: physio_clamshell
+  name: Clamshell
+  aliases: [Clams]
+  focus: [physio, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [glutes, abductors]
+  unilateral: true
+  instructions:
+    - Lie on your side with hips and knees bent and feet together.
+    - Keeping the feet touching, lift the top knee without rolling the pelvis back.
+    - Lower slowly. Add a band around the thighs to make it harder.
+
+- id: physio_side_lying_hip_abduction
+  name: Side-lying hip abduction
+  focus: [physio, strength]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abductors, glutes]
+  unilateral: true
+  instructions:
+    - Lie on your side with the bottom knee bent and the top leg straight.
+    - Lift the top leg slightly behind the body, toes pointing forward.
+    - Lower slowly without letting the hips roll.
+
+- id: physio_glute_bridge_isometric
+  name: Bridge hold
+  focus: [physio, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [glutes]
+  secondary_muscles: [hamstrings, abs]
+  default_target: seconds
+  instructions:
+    - Lie on your back with knees bent and feet hip-width apart.
+    - Squeeze the glutes and lift the hips until knees, hips and shoulders line up.
+    - Hold without arching the lower back, then lower slowly.
+
+- id: physio_ankle_pumps
+  name: Ankle pumps
+  focus: [physio, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [calves]
+  instructions:
+    - Sit or lie with the legs straight.
+    - Point the feet away from you, then pull them back toward you.
+    - Keep a steady rhythm.
+
+- id: physio_calf_raise_wall
+  name: Calf raise with wall support
+  focus: [physio, strength]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [calves]
+  instructions:
+    - Stand facing a wall with your fingertips on it for balance.
+    - Rise onto the balls of the feet as high as you can.
+    - Lower slowly, taking about three seconds.
+
+- id: physio_eccentric_heel_drop
+  name: Eccentric heel drop
+  aliases: [Alfredson heel drop]
+  focus: [physio, strength]
+  equipment: [bodyweight]
+  level: intermediate
+  primary_muscles: [calves]
+  unilateral: true
+  instructions:
+    - Stand on a step on the balls of the feet, holding a rail.
+    - Rise up on both feet, then shift your weight onto one foot.
+    - Lower that heel slowly below the step, then step back up with both feet.
+
+- id: physio_single_leg_balance
+  name: Single-leg balance
+  focus: [physio]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [calves]
+  secondary_muscles: [glutes]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Stand on one leg near a wall or chair for safety.
+    - Keep the standing knee soft and the pelvis level.
+    - To progress, close your eyes or stand on a cushion.
+
+- id: physio_step_down
+  name: Step-down
+  aliases: [Lateral step-down]
+  focus: [physio, strength]
+  equipment: [bodyweight]
+  level: intermediate
+  primary_muscles: [quads, glutes]
+  unilateral: true
+  instructions:
+    - Stand sideways on a low step on one leg.
+    - Slowly bend the standing knee to lower the other heel toward the floor.
+    - Keep the knee in line with the toes, then straighten back up.
+
+- id: physio_chin_tuck
+  name: Chin tuck
+  aliases: [Cervical retraction]
+  focus: [physio, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [neck]
+  instructions:
+    - Sit or stand tall looking straight ahead.
+    - Glide the chin straight back, making a double chin, without tilting the head.
+    - Hold briefly, then relax.
+
+- id: physio_scapular_retraction
+  name: Scapular retraction
+  aliases: [Shoulder blade squeeze]
+  focus: [physio, strength]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [upper_back]
+  instructions:
+    - Sit or stand tall with arms by your sides.
+    - Squeeze the shoulder blades back and down without shrugging.
+    - Hold briefly, then relax.
+
+- id: physio_band_external_rotation
+  name: Shoulder external rotation, band
+  focus: [physio, strength]
+  equipment: [bands]
+  level: beginner
+  primary_muscles: [shoulders]
+  secondary_muscles: [upper_back]
+  unilateral: true
+  instructions:
+    - Hold a band with the elbow bent to 90 degrees and tucked against your side.
+    - Rotate the forearm outward, keeping the elbow at your side.
+    - Return slowly.
+
+- id: physio_band_internal_rotation
+  name: Shoulder internal rotation, band
+  focus: [physio, strength]
+  equipment: [bands]
+  level: beginner
+  primary_muscles: [shoulders, chest]
+  unilateral: true
+  instructions:
+    - Anchor a band at elbow height to your side and hold it with the elbow bent to 90 degrees.
+    - Rotate the forearm across your stomach, elbow tucked in.
+    - Return slowly.
+
+- id: physio_wall_slides
+  name: Wall slides
+  focus: [physio, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [shoulders, upper_back]
+  instructions:
+    - Stand with your forearms on a wall, elbows at shoulder height.
+    - Slide the forearms up the wall as far as is comfortable without shrugging.
+    - Slide back down slowly.
+
+- id: physio_pendulum
+  name: Shoulder pendulum
+  aliases: [Codman pendulum]
+  focus: [physio, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [shoulders]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Lean forward with one hand on a table and let the other arm hang down.
+    - Gently sway your body so the hanging arm swings in small circles.
+    - Keep the shoulder relaxed; the arm moves because the body does.
+
+- id: physio_pelvic_tilt
+  name: Pelvic tilt
+  focus: [physio, core, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  secondary_muscles: [lower_back]
+  instructions:
+    - Lie on your back with knees bent and feet flat.
+    - Flatten the lower back into the floor by tilting the pelvis back.
+    - Relax back to neutral and repeat.
+
+- id: physio_knee_to_chest
+  name: Knee to chest stretch
+  focus: [physio, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back, glutes]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Lie on your back with knees bent.
+    - Bring one knee toward your chest, holding it with both hands.
+    - Hold the stretch, breathing slowly.
+
+- id: physio_mcgill_curl_up
+  name: McGill curl-up
+  focus: [physio, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  instructions:
+    - Lie on your back with one knee bent and the other leg straight, hands under the lower back.
+    - Lift the head and shoulders slightly as one unit, without bending the neck.
+    - Hold for a few seconds and lower. Switch the bent leg halfway through.
+
+- id: physio_side_plank_knees
+  name: Side plank on knees
+  focus: [physio, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [obliques]
+  secondary_muscles: [glutes, shoulders]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Lie on your side propped on the forearm, knees bent behind you.
+    - Lift the hips so the body forms a line from knees to head.
+    - Hold, then lower with control.
+
+- id: physio_abdominal_bracing
+  name: Abdominal bracing
+  aliases: [Core activation, Transversus activation]
+  focus: [physio, core]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [abs]
+  default_target: seconds
+  instructions:
+    - Lie on your back with knees bent.
+    - Gently draw the lower belly in and tighten the trunk, as if bracing for a light push.
+    - Keep breathing normally while you hold.
+
+- id: physio_cat_camel
+  name: Cat-camel
+  aliases: [Cat-cow, Spinal flexion and extension]
+  focus: [physio, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back]
+  secondary_muscles: [upper_back]
+  instructions:
+    - Start on hands and knees.
+    - Round the back up toward the ceiling, letting the head drop.
+    - Slowly let the back sag and lift the head. Move within a comfortable range.
+
+- id: physio_sit_to_stand
+  name: Sit to stand
+  aliases: [Chair stand]
+  focus: [physio, strength]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [quads, glutes]
+  instructions:
+    - Sit near the front of a chair with feet hip-width apart.
+    - Lean forward slightly and stand up without using your hands.
+    - Sit back down slowly with control.
+
+- id: physio_wrist_flexor_stretch
+  name: Wrist flexor stretch
+  focus: [physio, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [forearms]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Hold one arm straight in front, palm up.
+    - With the other hand, gently pull the fingers down and back.
+    - Hold the stretch without pain.

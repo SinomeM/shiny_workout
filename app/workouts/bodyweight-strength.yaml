@@ -7,11 +7,11 @@ tags:
   - full body
 steps:
   - type: warmup
-    name: Jumping jacks
+    exercise: wger:320
     seconds: 60
     advance: auto
   - type: warmup
-    name: Arm circles
+    exercise: fedb:Arm_Circles
     seconds: 30
     advance: auto
   - type: repeat
@@ -19,25 +19,25 @@ steps:
     skip_last_rest: true
     steps:
       - type: exercise
-        name: Push-ups
+        exercise: fedb:Pushups
         reps: 10
         advance: manual
         notes: Knees down if form breaks.
       - type: exercise
-        name: Bodyweight squats
+        exercise: fedb:Bodyweight_Squat
         reps: 15
         advance: manual
       - type: exercise
-        name: Reverse lunges
+        exercise: wger:999
         reps: 8
         sides: 2
         advance: manual
       - type: exercise
-        name: Glute bridge
+        exercise: wger:265
         reps: 12
         advance: manual
       - type: exercise
-        name: Plank
+        exercise: fedb:Plank
         seconds: 30
         advance: auto
       - type: rest

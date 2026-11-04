@@ -13,7 +13,7 @@ settings:
   switch_seconds: 10
 steps:
   - type: warmup
-    name: Heel slides
+    exercise: cur:physio_heel_slides
     reps: 10
     sides: 2
     advance: manual
@@ -22,33 +22,33 @@ steps:
     skip_last_rest: true
     steps:
       - type: exercise
-        name: Quad sets
+        exercise: cur:physio_quad_sets
         reps: 10
         hold_seconds: 5
         sides: 2
         advance: auto
         notes: Press the back of the knee into the mat.
       - type: exercise
-        name: Straight-leg raise
+        exercise: cur:physio_straight_leg_raise
         reps: 10
         hold_seconds: 3
         sides: 2
         advance: auto
       - type: exercise
-        name: Clamshell
+        exercise: cur:physio_clamshell
         reps: 12
         sides: 2
         advance: manual
         weight: light band
       - type: exercise
-        name: Wall sit
+        exercise: wger:1408
         seconds: 30
         advance: auto
       - type: rest
         seconds: 60
         advance: auto
   - type: cooldown
-    name: Hamstring stretch
+    exercise: fedb:Hamstring_Stretch
     seconds: 30
     sides: 2
     advance: auto

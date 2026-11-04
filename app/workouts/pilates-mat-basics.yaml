@@ -12,45 +12,45 @@ steps:
     seconds: 60
     advance: auto
   - type: warmup
-    name: Pelvic curl
+    exercise: cur:pilates_pelvic_curl
     reps: 8
     advance: manual
   - type: exercise
-    name: The hundred
+    exercise: cur:pilates_hundred
     seconds: 60
     advance: auto
     notes: Pump the arms, breathe in for 5, out for 5.
   - type: exercise
-    name: Roll-up
+    exercise: cur:pilates_roll_up
     reps: 6
     advance: manual
   - type: exercise
-    name: Single-leg circles
+    exercise: cur:pilates_single_leg_circles
     reps: 5
     sides: 2
     advance: manual
   - type: exercise
-    name: Rolling like a ball
+    exercise: cur:pilates_rolling_like_a_ball
     reps: 8
     advance: manual
   - type: exercise
-    name: Single-leg stretch
+    exercise: cur:pilates_single_leg_stretch
     reps: 10
     advance: manual
   - type: exercise
-    name: Spine stretch forward
+    exercise: cur:pilates_spine_stretch_forward
     reps: 5
     advance: manual
   - type: exercise
-    name: Side-lying leg lifts
+    exercise: cur:pilates_side_kick_up_down
     reps: 10
     sides: 2
     advance: manual
   - type: exercise
-    name: Swimming
+    exercise: cur:pilates_swimming
     seconds: 30
     advance: auto
   - type: cooldown
-    name: Child's pose
+    exercise: fedb:Childs_Pose
     seconds: 60
     advance: auto

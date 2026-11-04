@@ -9,3 +9,9 @@ defaults:
   relax_seconds: 3       # pause between guided reps
   switch_seconds: 5      # "switch sides" countdown between left and right
   seconds_per_rep: 3     # used to estimate the duration of rep-based steps
+
+# The catalog ships complete; these settings decide what the app shows.
+catalog:
+  enabled_equipment: [bodyweight, mat, exercise_ball, bands, foam_roller]
+  enabled_focus: [strength, hiit, core, mobility, yoga, pilates, physio]
+  show_all_toggle: false   # if true, users can reveal the rest of the catalog

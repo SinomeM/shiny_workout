@@ -9,4 +9,6 @@ for (f in list.files(testthat::test_path("..", "..", "app", "R"), pattern = "\\.
 }
 
 app_path <- function(...) testthat::test_path("..", "..", "app", ...)
-app_defaults <- read_app_config(app_path("config.yml"))$defaults
+app_config <- read_app_config(app_path("config.yml"))
+catalog <- load_catalog(app_path("data", "exercises.json"), app_config)
+app_defaults <- app_config$defaults

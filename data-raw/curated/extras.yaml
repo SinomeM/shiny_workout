@@ -1,0 +1,340 @@
+# Exercises the imported sources lack or describe poorly. Original text, CC-BY-SA 4.0
+# as part of the catalog.
+
+# HIIT and conditioning ---------------------------------------------------
+
+- id: skaters
+  name: Skaters
+  aliases: [Speed skaters]
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [glutes, quads]
+  secondary_muscles: [calves, abductors]
+  default_target: seconds
+  instructions:
+    - Leap sideways from one foot, landing softly on the other.
+    - Swing the free leg behind the landing leg and reach the opposite arm across.
+    - Leap back to the other side and keep a steady rhythm.
+
+- id: jump_lunges
+  name: Jump lunges
+  aliases: [Split jumps]
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: intermediate
+  primary_muscles: [quads, glutes]
+  secondary_muscles: [calves, hamstrings]
+  instructions:
+    - Start in a lunge with both knees bent.
+    - Jump up and switch legs in the air, landing softly in a lunge on the other side.
+    - Keep the torso upright and the front knee over the ankle.
+
+- id: tuck_jumps
+  name: Tuck jumps
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: intermediate
+  primary_muscles: [quads, calves]
+  secondary_muscles: [abs, glutes]
+  instructions:
+    - Stand with feet hip-width apart.
+    - Jump straight up and pull the knees toward the chest.
+    - Land softly on the balls of the feet and go straight into the next jump.
+
+- id: butt_kicks
+  name: Butt kicks
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [hamstrings]
+  secondary_muscles: [calves, quads]
+  default_target: seconds
+  instructions:
+    - Jog on the spot, kicking each heel up toward your bottom.
+    - Stay light on the balls of the feet and pump the arms.
+
+- id: inchworm
+  name: Inchworm
+  focus: [hiit, mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [hamstrings, shoulders]
+  secondary_muscles: [abs]
+  instructions:
+    - Stand tall, fold forward and put your hands on the floor.
+    - Walk the hands out to a high plank.
+    - Walk the hands back toward the feet and roll up to standing.
+
+- id: plank_up_downs
+  name: Plank up-downs
+  aliases: [Up-down plank, Commandos]
+  focus: [hiit, core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs, triceps]
+  secondary_muscles: [shoulders, chest]
+  instructions:
+    - Start in a forearm plank.
+    - Press up onto one hand, then the other, into a high plank.
+    - Lower back down one forearm at a time. Switch the leading arm each round.
+
+- id: bear_crawl
+  name: Bear crawl
+  focus: [hiit, core]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [shoulders, abs]
+  secondary_muscles: [quads]
+  default_target: seconds
+  instructions:
+    - Start on hands and feet with knees bent and hovering just off the floor.
+    - Crawl forward moving opposite hand and foot together.
+    - Keep the back flat and the hips low.
+
+- id: star_jumps
+  name: Star jumps
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [quads, shoulders]
+  secondary_muscles: [calves, glutes]
+  instructions:
+    - Crouch slightly with arms low.
+    - Jump up, spreading arms and legs into a star shape.
+    - Land softly with feet together and knees bent.
+
+- id: shadow_boxing
+  name: Shadow boxing
+  focus: [hiit]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [shoulders]
+  secondary_muscles: [abs, calves]
+  default_target: seconds
+  instructions:
+    - Stand in a boxing stance, hands up by the chin.
+    - Throw quick punches (jab, cross, hooks) while staying light on your feet.
+    - Keep moving and breathe out with each punch.
+
+- id: squat_pulses
+  name: Squat pulses
+  focus: [hiit, strength]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [quads, glutes]
+  default_target: seconds
+  instructions:
+    - Lower into a squat with thighs about parallel to the floor.
+    - Pulse up and down a few centimetres without standing up.
+    - Keep the chest up and the weight in the heels.
+
+# Core -------------------------------------------------------------------
+
+- id: side_plank_hip_dips
+  name: Side plank hip dips
+  focus: [core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [obliques]
+  secondary_muscles: [glutes, shoulders]
+  unilateral: true
+  instructions:
+    - Start in a forearm side plank.
+    - Lower the hip toward the floor, then lift it back above the line of the body.
+    - Keep the elbow under the shoulder.
+
+- id: hollow_body_rock
+  name: Hollow body rock
+  focus: [core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs]
+  secondary_muscles: [hip_flexors]
+  default_target: seconds
+  instructions:
+    - Lie on your back, lift arms, shoulders and legs into a hollow hold with the lower back on the floor.
+    - Rock gently back and forth, keeping the shape.
+
+- id: forearm_plank_reach
+  name: Plank with arm reach
+  focus: [core]
+  equipment: [mat]
+  level: intermediate
+  primary_muscles: [abs, shoulders]
+  secondary_muscles: [obliques]
+  instructions:
+    - Hold a high plank with feet a little wider than the hips.
+    - Reach one arm straight forward without letting the hips rotate.
+    - Return it and switch arms.
+
+# Yoga and breathing ------------------------------------------------------
+
+- id: mountain_pose
+  name: Mountain pose
+  aliases: [Tadasana]
+  focus: [yoga]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [quads]
+  secondary_muscles: [abs]
+  default_target: seconds
+  instructions:
+    - Stand with feet hip-width apart and weight even across both feet.
+    - Lengthen the spine, relax the shoulders and let the arms hang by your sides.
+    - Breathe slowly and stay steady.
+
+- id: cobra_pose
+  name: Cobra pose
+  aliases: [Bhujangasana, Cobra]
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back]
+  secondary_muscles: [upper_back, glutes]
+  default_target: seconds
+  instructions:
+    - Lie face down with hands under the shoulders and elbows tucked in.
+    - Press the tops of the feet down and lift the chest, keeping the elbows bent.
+    - Keep the shoulders away from the ears and breathe.
+
+- id: easy_seat
+  name: Easy seat
+  aliases: [Sukhasana, Easy pose]
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [lower_back]
+  default_target: seconds
+  instructions:
+    - Sit cross-legged, on a folded blanket if the knees are higher than the hips.
+    - Lengthen the spine and rest the hands on the knees.
+    - Breathe slowly through the nose.
+
+- id: bridge_pose
+  name: Bridge pose
+  aliases: [Setu Bandha Sarvangasana]
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [glutes]
+  secondary_muscles: [hamstrings, lower_back]
+  default_target: seconds
+  instructions:
+    - Lie on your back with knees bent and feet flat, hip-width apart.
+    - Press into the feet and lift the hips, rolling the shoulders underneath.
+    - Hold and breathe, then roll down slowly.
+
+- id: supine_twist
+  name: Supine twist
+  aliases: [Supta Matsyendrasana, Reclined twist]
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [obliques, lower_back]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Lie on your back and hug one knee in.
+    - Let that knee fall across the body to the floor, arms out wide.
+    - Turn the head the other way if comfortable and breathe into the twist.
+
+- id: thread_the_needle
+  name: Thread the needle
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [upper_back, shoulders]
+  unilateral: true
+  default_target: seconds
+  instructions:
+    - Start on hands and knees.
+    - Slide one arm under the other, palm up, lowering the shoulder and ear to the mat.
+    - Hold, then return and switch sides.
+
+- id: puppy_pose
+  name: Puppy pose
+  aliases: [Uttana Shishosana, Extended puppy]
+  focus: [yoga, mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [shoulders, lats]
+  default_target: seconds
+  instructions:
+    - Start on hands and knees with hips over the knees.
+    - Walk the hands forward and lower the chest toward the mat, keeping the hips high.
+    - Rest the forehead down and breathe.
+
+- id: box_breathing
+  name: Box breathing
+  focus: [mobility]
+  equipment: [bodyweight]
+  level: beginner
+  default_target: seconds
+  instructions:
+    - Sit or lie comfortably.
+    - Breathe in for 4 counts, hold for 4, breathe out for 4, hold for 4.
+    - Repeat at a calm, even pace.
+
+# Mobility ----------------------------------------------------------------
+
+- id: neck_rolls
+  name: Neck rolls
+  focus: [mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [neck]
+  default_target: seconds
+  instructions:
+    - Sit or stand tall with shoulders relaxed.
+    - Drop the chin and roll the head slowly from one shoulder to the other in a half circle.
+    - Move gently and avoid tipping the head far back.
+
+- id: shoulder_rolls
+  name: Shoulder rolls
+  focus: [mobility]
+  equipment: [bodyweight]
+  level: beginner
+  primary_muscles: [shoulders, upper_back]
+  default_target: seconds
+  instructions:
+    - Stand tall with arms relaxed.
+    - Roll the shoulders up, back and down in big, slow circles.
+    - Reverse the direction halfway through.
+
+- id: thoracic_rotation
+  name: Thoracic rotation, quadruped
+  aliases: [Thoracic rotation]
+  focus: [mobility]
+  equipment: [mat]
+  level: beginner
+  primary_muscles: [upper_back]
+  secondary_muscles: [obliques]
+  unilateral: true
+  instructions:
+    - Start on hands and knees with one hand behind your head.
+    - Rotate that elbow down toward the other arm, then up toward the ceiling.
+    - Follow the elbow with your eyes and keep the hips still.
+
+- id: foam_roller_upper_back
+  name: Foam roller, upper back
+  focus: [mobility]
+  equipment: [foam_roller]
+  level: beginner
+  primary_muscles: [upper_back]
+  default_target: seconds
+  instructions:
+    - Lie with a foam roller across the upper back, hands supporting the head, hips on the floor or lifted.
+    - Roll slowly between the bottom of the shoulder blades and the top of the shoulders.
+    - Pause on tight spots and breathe. Avoid rolling the lower back.
+
+- id: ball_wall_squat
+  name: Wall squat with exercise ball
+  focus: [strength]
+  equipment: [exercise_ball]
+  level: beginner
+  primary_muscles: [quads, glutes]
+  instructions:
+    - Stand with an exercise ball between your lower back and a wall, feet a step forward.
+    - Squat down, letting the ball roll up the back, until the thighs are about parallel.
+    - Press back up to standing.

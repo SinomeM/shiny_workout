@@ -8,25 +8,25 @@ tags:
   - mat
 steps:
   - type: warmup
-    name: Cat-cow
+    exercise: wger:1938
     seconds: 60
     advance: auto
   - type: exercise
-    name: Front plank
+    exercise: fedb:Plank
     seconds: 20
     advance: auto
   - type: rest
     seconds: 15
     advance: auto
   - type: exercise
-    name: Front plank
+    exercise: fedb:Plank
     seconds: 40
     advance: auto
   - type: rest
     seconds: 15
     advance: auto
   - type: exercise
-    name: Front plank
+    exercise: fedb:Plank
     seconds: 60
     advance: manual
     notes: Hold past the beep if you can, then press Space.
@@ -37,16 +37,16 @@ steps:
     times: 2
     steps:
       - type: exercise
-        name: Side plank
+        exercise: wger:580
         seconds: 30
         sides: 2
         advance: auto
       - type: exercise
-        name: Dead bug
+        exercise: fedb:Dead_Bug
         reps: 10
         advance: manual
       - type: exercise
-        name: Bird dog
+        exercise: wger:1572
         reps: 8
         sides: 2
         advance: manual
@@ -54,6 +54,6 @@ steps:
         seconds: 30
         advance: auto
   - type: cooldown
-    name: Child's pose
+    exercise: fedb:Childs_Pose
     seconds: 60
     advance: auto

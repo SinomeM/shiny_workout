@@ -471,12 +471,24 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
 - *Exit*: `compile_workout()` turns each example into the expected flat step list
   (snapshot tests in `tests/testthat/_snaps/examples.md`).
 
-### Phase 2: Catalog (L)
+### Phase 2: Catalog (L) ✓ done 2026-11-04
 - Importers for free-exercise-db, wger (snapshot), yoga-api; `vocab.yaml`; dedupe;
   `curation.yaml`; curated `pilates.yaml`, `physio.yaml`, `extras.yaml`; `CREDITS.md`.
 - `mod_catalog`: search, filters, details modal (text only).
 - *Exit*: the enabled catalog (estimated 600–700 exercises after dedupe and curation) is
   browsable and filterable by focus, with credits shown.
+- Status (2026-11-04): ✓ done, checked in the WASM build. 1,770 exercises in all,
+  **618 enabled** (wger 264, free-exercise-db 228, curated 86, yoga-api 40). The examples
+  now use catalog ids. "+" only shows a notification until the editor exists (Phase 3).
+- Notes:
+  - wger has 930 English exercises but often tags gym exercises as bodyweight or leaves
+    equipment empty; `vocab.yaml` fixes equipment from the name (machine, bar, …).
+  - yoga-api pose descriptions come from an unlicensed upstream project, so the 37
+    yoga-api poses have no instructions yet. Follow-up: write our own short instructions
+    (curation `set:` or a curated file).
+  - The yoga importer reads yoga-api's SQLite file, so RSQLite is a dev dependency.
+  - Server-side `debounce()` didn't fire on its own for the search box; `textInput`
+    already waits for a pause in typing, so the extra debounce was removed.
 
 ### Phase 3: Editor (L)
 - Step cards, add / edit / duplicate / delete / move, repeat blocks, sides, holds,
