@@ -19,3 +19,47 @@
 .sw-badge-equipment { background: var(--bs-warning-bg-subtle); color: var(--bs-warning-text-emphasis); }
 .sw-badge-level { background: var(--bs-secondary-bg); color: var(--bs-secondary-color); }
 .sw-ex-add { flex: none; }
+
+/* Editor ----------------------------------------------------------------- */
+.sw-steps { display: flex; flex-direction: column; gap: 0.4rem; }
+.sw-empty {
+  padding: 1rem; text-align: center; color: var(--bs-secondary-color);
+  border: 1px dashed var(--bs-border-color); border-radius: 0.5rem;
+}
+.sw-card {
+  --sw-type: var(--bs-success);
+  border: 1px solid var(--bs-border-color); border-left: 4px solid var(--sw-type);
+  border-radius: 0.5rem; background: var(--bs-body-bg);
+}
+.sw-card-warmup { --sw-type: var(--bs-orange); }
+.sw-card-rest { --sw-type: var(--bs-info); }
+.sw-card-cooldown { --sw-type: var(--bs-purple); }
+.sw-card-repeat { --sw-type: var(--bs-secondary); background: var(--bs-tertiary-bg); }
+.sw-card-row { display: flex; align-items: center; gap: 0.25rem; padding: 0.35rem 0.25rem 0.35rem 0.1rem; }
+.sw-drag { cursor: grab; color: var(--bs-secondary-color); padding: 0 0.25rem; touch-action: none; }
+.sw-card-main { flex: 1; min-width: 0; }
+.sw-card-title { font-weight: 500; }
+.sw-type {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--sw-type); margin-right: 0.4rem;
+}
+.sw-card-target { font-size: 0.875rem; color: var(--bs-secondary-color); }
+.sw-card-notes { font-size: 0.8rem; font-style: italic; color: var(--bs-secondary-color); }
+.sw-card-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+.sw-card-btn { padding: 0.15rem 0.3rem; color: var(--bs-secondary-color); }
+.sw-card-btn:hover { color: var(--bs-emphasis-color); }
+.sw-block-steps { display: flex; flex-direction: column; gap: 0.4rem; padding: 0 0.5rem 0 1.5rem; min-height: 2rem; }
+.sw-block-add { padding: 0 0.5rem 0.25rem 1.4rem; }
+.sw-add-bar { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+.sortable-ghost { opacity: 0.4; }
+.sw-summary {
+  display: flex; flex-direction: column; gap: 0.4rem; padding: 0.6rem 0.75rem;
+  background: var(--bs-tertiary-bg); border-radius: 0.5rem;
+}
+.sw-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.sw-stat-value { font-size: 1.25rem; font-weight: 600; }
+.sw-stat-label { font-size: 0.75rem; color: var(--bs-secondary-color); }
+@media (max-width: 575.98px) {
+  .sw-card-row { flex-wrap: wrap; }
+  .sw-card-actions { width: 100%; }
+}

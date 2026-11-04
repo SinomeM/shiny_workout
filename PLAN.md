@@ -490,10 +490,22 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
   - Server-side `debounce()` didn't fire on its own for the search box; `textInput`
     already waits for a pause in typing, so the extra debounce was removed.
 
-### Phase 3: Editor (L)
+### Phase 3: Editor (L) ✓ done 2026-11-04
 - Step cards, add / edit / duplicate / delete / move, repeat blocks, sides, holds,
   drag & drop, summary, undo, draft autosave.
 - *Exit*: the example workouts can be rebuilt from scratch in the UI.
+- Status (2026-11-04): ✓ done, checked in regular Shiny and the WASM build.
+  `editor_ops.R` (pure, tested) + `mod_editor.R` + `www/editor.js`. The knee example is
+  rebuilt from the edit modal's inputs in `test-editor-rebuild.R`.
+- Notes:
+  - Added a "Timing for this workout" panel (get ready, relax, switch sides), because two
+    examples override those settings; the full Settings panel is still Phase 4.
+  - "+ Custom step" is the exercise modal with only a name filled in, so there's no
+    separate button.
+  - Drag and drop works within one list (top level, or inside one block); moving between
+    them uses the "move into / out of block" buttons, as planned.
+  - SortableJS 1.15.6 (MIT) is vendored in `app/www/vendor/` instead of using the
+    `sortable` R package, which would make webR download learnr, rmarkdown and knitr.
 
 ### Phase 4: Save, load, library, settings (M)
 - Download / upload YAML with validation messages, localStorage library, examples,

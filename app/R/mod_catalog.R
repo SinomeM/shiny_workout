@@ -15,7 +15,7 @@ catalog_ui <- function(id, catalog) {
                    options = list(plugins = list("remove_button"), placeholder = "Any"))
   }
   card(
-    class = "sw-catalog",
+    class = "sw-catalog align-self-start",
     card_header(
       class = "d-flex justify-content-between align-items-center",
       "Exercises",
