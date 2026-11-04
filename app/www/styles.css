@@ -63,3 +63,18 @@
   .sw-card-row { flex-wrap: wrap; }
   .sw-card-actions { width: 100%; }
 }
+
+/* Library ---------------------------------------------------------------- */
+.sw-save-status { font-size: 0.75rem; color: var(--bs-secondary-color); margin-top: -0.6rem; }
+.sw-lib-list { display: flex; flex-direction: column; gap: 0.35rem; }
+.sw-lib-row {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.6rem;
+  border: 1px solid var(--bs-border-color); border-radius: 0.5rem;
+}
+.sw-lib-main { flex: 1; min-width: 0; }
+.sw-lib-name { font-weight: 500; }
+.sw-lib-details { font-size: 0.8rem; color: var(--bs-secondary-color); }
+@media (max-width: 575.98px) {
+  .sw-lib-row { flex-wrap: wrap; }
+  .sw-lib-row .sw-card-actions { width: 100%; }
+}

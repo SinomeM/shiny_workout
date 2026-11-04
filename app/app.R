@@ -5,6 +5,8 @@ library(bslib)
 
 config <- read_app_config("config.yml")
 catalog <- load_catalog("data/exercises.json", config)
+example_files <- list.files("workouts", pattern = "\\.ya?ml$", full.names = TRUE)
+examples <- stats::setNames(lapply(example_files, read_workout), tools::file_path_sans_ext(basename(example_files)))
 
 ui <- page_navbar(
   title = "shiny_workout",
@@ -15,6 +17,7 @@ ui <- page_navbar(
     tags$link(rel = "stylesheet", href = "styles.css"),
     tags$script(src = "storage.js"),
     tags$script(src = "keys.js"),
+    tags$script(src = "actions.js"),
     tags$script(src = "catalog.js"),
     tags$script(src = "vendor/Sortable-1.15.6.min.js"),  # SortableJS, MIT licence
     tags$script(src = "editor.js")
@@ -27,18 +30,25 @@ ui <- page_navbar(
       editor_ui("editor")
     )
   ),
-  nav_panel("Library", placeholder_card("Library", "Saved and example workouts (Phase 4).")),
+  nav_panel("Library", library_ui("library")),
   nav_panel("Run", placeholder_card("Run", "Workout player (Phase 5).")),
   nav_panel("Diagnostics", diagnostics_ui("diag")),
   nav_spacer(),
+  nav_item(actionLink("settings", "Settings", icon = bsicons::bs_icon("gear"))),
   nav_item(actionLink("about", "About", icon = bsicons::bs_icon("info-circle"))),
   nav_item(input_dark_mode(id = "dark_mode"))
 )
 
 server <- function(input, output, session) {
-  settings <- reactive(config$defaults)
+  user_settings <- settings_store(input, session, config$defaults)
+  settings <- user_settings$settings
+  settings_server(input, output, session, user_settings, config$defaults)
+  store <- library_store(input, session)
+
   added <- catalog_server("catalog", catalog, settings)
-  workout <- editor_server("editor", catalog, settings, added)
+  editor <- editor_server("editor", catalog, settings, added, store)
+  library_server("library", store, examples, catalog, settings, editor,
+                 go_build = function() nav_select("nav", "Build", session = session))
 
   observeEvent(input$about, showModal(about_modal(attr(catalog, "sources"))))
   diagnostics_server("diag")

@@ -511,6 +511,18 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
 - Download / upload YAML with validation messages, localStorage library, examples,
   export all; Settings panel for editable defaults.
 - *Exit*: build → save → reload page → open from library → identical workout; same via file.
+- Status (2026-11-04): ✓ done, checked in regular Shiny and the WASM build (downloads included).
+  `library.R` (pure, tested: the library JSON and multi-workout YAML round trips give
+  identical workouts) + `mod_library.R`. Checked in the browser: save, reload, rename,
+  delete, open example, import (one good and one broken workout in one file), settings
+  saved across reloads. Not checked by me: the actual file downloads (needs your browser).
+- Notes:
+  - Downloads are made in the browser from text R sends (`sw-download` in storage.js),
+    not with `downloadHandler`, so each library row can have its own Download button.
+  - The open workout remembers which library entry it came from, so Save updates that
+    entry; the editor shows "Saved in your library" / "Unsaved changes".
+  - The draft is now stored as JSON (library id + YAML); older YAML drafts still load.
+  - Card buttons in the editor and library share one delegated handler (`actions.js`).
 
 ### Phase 5: Player (L)
 - `player.js` state machine, layout, keyboard + touch, overtime, sides, guided reps,

@@ -1,7 +1,9 @@
-# Workout editor: header fields, step cards, add bar, edit modal, summary, undo/redo
-# and a draft autosaved to localStorage. All card buttons reach R through one
-# delegated JS handler (www/editor.js) as input$action = {op, uid, container}; drag
-# and drop sends input$reorder = {container, order}.
+# Workout editor: header fields, step cards, add bar, edit modal, summary, undo/redo,
+# save to the library, download, and a draft autosaved to localStorage. All card
+# buttons reach R through one delegated JS handler (www/actions.js) as
+# input$action = {op, uid, container}; drag and drop (www/editor.js) sends
+# input$reorder = {container, order}. The library entry a workout came from is kept
+# as attr(w, "library_id"), so it follows undo/redo and is never written to files.
 
 draft_key <- "shiny_workout.draft"
 
@@ -27,6 +29,8 @@ editor_ui <- function(id) {
       "Workout",
       div(
         class = "ms-auto d-flex gap-1",
+        icon_button("save", "floppy", "Save to library"),
+        icon_button("download", "download", "Download as YAML"),
         icon_button("undo", "arrow-counterclockwise", "Undo"),
         icon_button("redo", "arrow-clockwise", "Redo"),
         icon_button("new", "file-earmark-plus", "New workout")
@@ -37,7 +41,10 @@ editor_ui <- function(id) {
       gap = "0.75rem",
       layout_columns(
         col_widths = c(8, 4), gap = "0.5rem",
-        textInput(ns("name"), "Name", value = "New workout", width = "100%"),
+        tagList(
+          textInput(ns("name"), "Name", value = "New workout", width = "100%"),
+          uiOutput(ns("status"), class = "sw-save-status")
+        ),
         selectInput(ns("sport"), "Sport", choices = c("None" = "", stats::setNames(sports, term_label(sports))),
                     width = "100%")
       ),
@@ -67,7 +74,7 @@ editor_ui <- function(id) {
       uiOutput(ns("summary")),
       div(
         class = "sw-editor-steps",
-        `data-sw-editor` = ns("action"),
+        `data-sw-actions` = ns("action"),
         uiOutput(ns("steps")),
         div(
           class = "sw-add-bar",
@@ -83,7 +90,7 @@ editor_ui <- function(id) {
   )
 }
 
-editor_server <- function(id, catalog, settings, added) {
+editor_server <- function(id, catalog, settings, added, store) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
     state <- reactiveValues(
@@ -123,19 +130,59 @@ editor_server <- function(id, catalog, settings, added) {
     })
     observeEvent(input$new, commit(with_uids(new_workout("New workout"))))
 
-    # Draft: restore once at start, then save after every change.
+    load_workout <- function(w, library_id = NULL) {
+      w <- with_uids(strip_uids(w))
+      attr(w, "library_id") <- library_id
+      commit(w)
+    }
+
+    # Save to the library: replaces the entry it came from, or adds a new one.
+    observeEvent(input$save, {
+      w <- state$w
+      if (length(validate_workout(w, catalog)$errors)) {
+        showNotification("Fix the problems listed under the steps before saving.", type = "error", duration = 3)
+        return()
+      }
+      id <- store$save(w, attr(w, "library_id"))
+      attr(w, "library_id") <- id
+      state$w <- w
+      showNotification(paste("Saved", dQuote(w$name, FALSE), "to your library."), duration = 2, type = "message")
+    })
+    observeEvent(input$download, {
+      w <- state$w
+      session$sendCustomMessage("sw-download", list(filename = workout_filename(w$name),
+                                                    text = workout_to_yaml(w)))
+    })
+    output$status <- renderUI({
+      w <- state$w
+      id <- attr(w, "library_id")
+      entry <- if (!is.null(id)) library_get(store$entries(), id)
+      if (is.null(entry)) return("Not in your library yet")
+      if (identical(tidy_workout(entry$workout), tidy_workout(w))) "Saved in your library" else "Unsaved changes"
+    })
+
+    # Draft: restore once at start, then save after every change. Stored as JSON with
+    # the library id and the workout as YAML; older drafts are plain YAML.
     session$sendCustomMessage("sw-storage-get", list(key = draft_key, input = ns("draft")))
     observeEvent(input$draft, once = TRUE, {
       text <- input$draft$value
       if (is.character(text) && nzchar(text)) {
-        w <- tryCatch(workout_from_yaml(text), error = function(e) NULL)
-        if (!is.null(w) && is.list(w$steps %||% list())) state$w <- with_uids(w)
+        draft <- tryCatch(jsonlite::fromJSON(text), error = function(e) list(yaml = text))
+        w <- tryCatch(workout_from_yaml(draft$yaml %||% text), error = function(e) NULL)
+        if (!is.null(w) && is.list(w$steps %||% list())) {
+          w <- with_uids(w)
+          attr(w, "library_id") <- draft$id
+          state$w <- w
+        }
       }
       state$loaded <- TRUE
     })
     observeEvent(state$w, {
       if (state$loaded) {
-        session$sendCustomMessage("sw-storage-set", list(key = draft_key, value = workout_to_yaml(state$w)))
+        draft <- list(id = attr(state$w, "library_id"), yaml = workout_to_yaml(state$w))
+        session$sendCustomMessage("sw-storage-set", list(
+          key = draft_key, value = as.character(jsonlite::toJSON(draft, auto_unbox = TRUE))
+        ))
       }
     })
 
@@ -162,7 +209,9 @@ editor_server <- function(id, catalog, settings, added) {
       value <- if (length(value) && any(nzchar(value))) value else NULL
       if (identical(w[[field]], value)) return()
       w[[field]] <- value
-      commit(w[c(intersect(workout_fields, names(w)), setdiff(names(w), workout_fields))], key = field)
+      ordered <- w[c(intersect(workout_fields, names(w)), setdiff(names(w), workout_fields))]
+      attr(ordered, "library_id") <- attr(w, "library_id")
+      commit(ordered, key = field)
     }
     observeEvent(input$name, header_field("name", input$name), ignoreInit = TRUE)
     observeEvent(input$sport, header_field("sport", input$sport), ignoreInit = TRUE)
@@ -282,7 +331,18 @@ editor_server <- function(id, catalog, settings, added) {
       )
     })
 
-    reactive(state$w)
+    list(
+      workout = reactive(state$w),
+      load = load_workout,
+      # A deleted library entry: the open workout is no longer linked to it.
+      forget = function(id) {
+        w <- isolate(state$w)
+        if (identical(attr(w, "library_id"), id)) {
+          attr(w, "library_id") <- NULL
+          state$w <- w
+        }
+      }
+    )
   })
 }
 

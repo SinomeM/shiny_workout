@@ -1,20 +1,8 @@
-// Workout editor. One delegated click handler sends {op, uid, container} for every card
-// button and add button; SortableJS (www/vendor, MIT) makes each step list
-// draggable and sends the new order. Lists are re-rendered by Shiny after each change,
-// so new lists are picked up with a MutationObserver.
+// Workout editor drag and drop: SortableJS (www/vendor, MIT) makes each step list
+// draggable and sends the new order. Card buttons go through www/actions.js. Lists are
+// re-rendered by Shiny after each change, so new lists are picked up with a
+// MutationObserver.
 (function () {
-  document.addEventListener("click", function (e) {
-    var btn = e.target.closest("[data-sw-op]");
-    var root = btn && btn.closest("[data-sw-editor]");
-    if (!root || !window.Shiny) return;
-    Shiny.setInputValue(root.dataset.swEditor, {
-      op: btn.dataset.swOp,
-      uid: btn.dataset.uid || "",
-      container: btn.dataset.container || "",
-      t: Date.now()
-    }, { priority: "event" });
-  });
-
   function initLists() {
     if (!window.Sortable) return;
     document.querySelectorAll("[data-sw-sortable]").forEach(function (el) {
