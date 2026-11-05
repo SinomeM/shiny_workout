@@ -15,6 +15,24 @@
   }
 
   document.addEventListener("click", handle);
+
+  // On narrow screens the catalog is hidden and opens over the editor.
+  function showCatalog(on) {
+    document.body.classList.toggle("sw-catalog-shown", on);
+    // Focus the search only with a mouse: on a phone it would pop the keyboard up at once.
+    if (on && window.matchMedia("(hover: hover)").matches) {
+      var search = document.querySelector(".sw-catalog input[type=text]");
+      if (search) search.focus();
+    }
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("[data-sw-catalog]");
+    if (t) showCatalog(t.dataset.swCatalog === "open");
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.body.classList.contains("sw-catalog-shown") &&
+        !document.querySelector(".modal.show")) showCatalog(false);
+  });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && e.target.classList.contains("sw-ex-row")) handle(e);
   });

@@ -109,7 +109,7 @@ library_ui <- function(id) {
   layout_columns(
     col_widths = breakpoints(sm = 12, lg = c(7, 5)),
     card(
-      class = "align-self-start",
+      fill = FALSE,
       card_header(
         class = "d-flex align-items-center gap-2",
         "My workouts",
@@ -125,7 +125,7 @@ library_ui <- function(id) {
       )
     ),
     card(
-      class = "align-self-start",
+      fill = FALSE,
       card_header("Examples"),
       card_body(
         fillable = FALSE,

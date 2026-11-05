@@ -1,0 +1,56 @@
+<div id="sw-loading" role="status" aria-live="polite" title="Click to hide">
+  <div class="sw-l-box">
+    <div class="sw-l-title">shiny_workout</div>
+    <div class="sw-l-spinner"></div>
+    <div class="sw-l-text">Starting R in your browser…</div>
+    <div class="sw-l-hint">
+      The first visit downloads R and the app (about 30 MB), so it can take a minute.
+      Later visits load from your browser's cache.
+    </div>
+  </div>
+</div>
+<script>
+  // Loading screen over the Shinylive app. It goes away once Shiny inside the app frame
+  // is connected, when Shinylive shows an error, or on a click.
+  (function () {
+    var box = document.getElementById("sw-loading");
+    var text = box.querySelector(".sw-l-text");
+    var start = Date.now();
+    var messages = [
+      [0, "Starting R in your browser…"],
+      [8000, "Loading the app's packages…"],
+      [25000, "Almost there…"],
+      [90000, "Still loading. On a slow connection the first visit can take a few minutes."]
+    ];
+
+    function ready() {
+      var frame = document.querySelector("#root iframe");
+      try {
+        var shiny = frame && frame.contentWindow && frame.contentWindow.Shiny;
+        return !!(shiny && shiny.shinyapp && shiny.shinyapp.isConnected());
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function failed() {
+      var w = document.querySelector("#root .loading-wrapper");
+      return !!(w && w.className.indexOf("loading-wrapper-") >= 0);
+    }
+
+    function hide() {
+      clearInterval(timer);
+      box.classList.add("sw-l-done");
+      setTimeout(function () { box.remove(); }, 400);
+    }
+
+    var timer = setInterval(function () {
+      var t = Date.now() - start;
+      for (var i = messages.length - 1; i >= 0; i--) {
+        if (t >= messages[i][0]) { text.textContent = messages[i][1]; break; }
+      }
+      if (ready() || failed()) hide();
+    }, 250);
+    box.addEventListener("click", hide);
+  })();
+</script>

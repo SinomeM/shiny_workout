@@ -450,7 +450,8 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
   - [x] browser-side R version: webR runs **R 4.6.0**.
 - Note: package versions in webR differ from local renv: shiny 1.13.0.8000 and bslib
   0.11.0 in the browser (local: shiny 1.14.0, bslib 0.12.0). Use only features present in
-  the webR versions, and check them on the Diagnostics tab when it matters.
+  the webR versions, and check them in the WASM build when it matters. (The Diagnostics
+  tab was removed in Phase 6; it's in git history, commit da3573e.)
 - Actions workflow → **live "hello" URL on GitHub Pages**: deployed 2026-11-02 to
   <https://sinomem.github.io/shiny_workout/>.
 - Note: the first CI run failed because `openssl` 2.5.0 was on CRAN but not yet on Posit
@@ -559,6 +560,24 @@ Each phase ends with something runnable. Effort is relative (S/M/L).
 - Responsive checks at phone width, dark mode, loading screen, keyboard-shortcut help
   overlay, About & credits, README with screenshots and a "write a workout in YAML" section.
 - *Exit*: v1.0 tagged and live.
+- Status (2026-11-05): built and checked in regular Shiny (laptop and phone width, light and
+  dark) and the WASM build (headless Chrome). Waiting for a check on the live site and a
+  real phone; not tagged.
+- Notes:
+  - Phone: the catalog is hidden below the `lg` breakpoint and opens over the editor from
+    "Browse catalog" (Done or Esc closes it). Card buttons are larger on touch screens.
+  - Cards use `card(fill = FALSE)`. The earlier `align-self-start` stopped them stretching
+    to the height of the tallest card, but also shrank them to their content's width
+    (each grid cell is a column flexbox), which left a gap between the columns.
+  - Dark mode: the theme's secondary grey was unreadable on the dark background; outline
+    secondary buttons now use the body colour there.
+  - Loading screen, page title and icon are added at export through Shinylive's
+    template parameters (`scripts/site/`). The overlay hides once Shiny inside the app
+    frame is connected, if Shinylive shows an error, or on a click.
+  - Help dialog (navbar, or `?`), version in About, the Diagnostics spike and `keys.js`
+    removed; missing numbers no longer write "NA" into number inputs.
+  - README screenshots come from `scripts/screenshots.R` (headless Chrome via chromote,
+    excluded from renv in `.renvignore`).
 
 ### Phase 7: Images (M, later)
 - free-exercise-db: 2 photos per exercise alternating every ~1 s (GIF-like).

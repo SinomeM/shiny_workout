@@ -15,11 +15,17 @@ catalog_ui <- function(id, catalog) {
                    options = list(plugins = list("remove_button"), placeholder = "Any"))
   }
   card(
-    class = "sw-catalog align-self-start",
+    class = "sw-catalog", fill = FALSE,
     card_header(
       class = "d-flex justify-content-between align-items-center",
       "Exercises",
-      textOutput(ns("count"), inline = TRUE) |> tagAppendAttributes(class = "badge text-bg-secondary")
+      div(
+        class = "d-flex align-items-center gap-2",
+        textOutput(ns("count"), inline = TRUE) |> tagAppendAttributes(class = "badge text-bg-secondary"),
+        # Only on narrow screens, where the catalog opens over the editor.
+        tags$button(type = "button", class = "btn btn-sm btn-primary sw-catalog-close",
+                    `data-sw-catalog` = "close", "Done")
+      )
     ),
     card_body(
       gap = "0.5rem",

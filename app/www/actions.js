@@ -14,4 +14,13 @@
       t: Date.now()
     }, { priority: "event" });
   });
+
+  // "?" opens the help, unless the user is typing or a dialog is open.
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if (e.key !== "?" || !window.Shiny || document.querySelector(".modal.show")) return;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    e.preventDefault();
+    Shiny.setInputValue("help_key", Date.now(), { priority: "event" });
+  });
 })();

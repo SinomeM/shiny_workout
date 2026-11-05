@@ -1,0 +1,2 @@
+# Dev-only tools that aren't part of the renv lockfile.
+scripts/screenshots.R

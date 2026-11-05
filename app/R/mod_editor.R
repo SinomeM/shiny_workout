@@ -23,7 +23,7 @@ editor_ui <- function(id) {
                 bsicons::bs_icon(icon), label)
   }
   card(
-    class = "sw-editor align-self-start",
+    class = "sw-editor", fill = FALSE,
     card_header(
       class = "d-flex align-items-center gap-2",
       "Workout",
@@ -68,7 +68,7 @@ editor_ui <- function(id) {
           do.call(layout_columns, c(
             list(col_widths = c(4, 4, 4), gap = "0.5rem"),
             lapply(names(workout_timing), function(key) {
-              numericInput(ns(paste0("set_", key)), workout_timing[[key]], value = NA, min = 0, step = 1)
+              numericInput(ns(paste0("set_", key)), workout_timing[[key]], value = NULL, min = 0, step = 1)
             })
           ))
         )
@@ -80,6 +80,8 @@ editor_ui <- function(id) {
         uiOutput(ns("steps")),
         div(
           class = "sw-add-bar",
+          tags$button(type = "button", class = "btn btn-sm btn-primary sw-catalog-toggle",
+                      `data-sw-catalog` = "open", bsicons::bs_icon("search"), "Browse catalog"),
           add_button("add_exercise", "Exercise", "plus-lg"),
           add_button("add_rest", "Rest", "pause-circle"),
           add_button("add_warmup", "Warm-up", "sunrise"),
@@ -204,7 +206,7 @@ editor_server <- function(id, catalog, settings, added, store, go_run) {
         id <- paste0("set_", key)
         value <- w$settings[[key]] %||% NA
         current <- isolate(input[[id]]) %||% NA
-        if (!identical(as.numeric(current), as.numeric(value))) updateNumericInput(session, id, value = value)
+        if (!identical(as.numeric(current), as.numeric(value))) updateNumericInput(session, id, value = blank_na(value) %||% "")
       }
     })
     header_field <- function(field, value) {
@@ -273,8 +275,8 @@ editor_server <- function(id, catalog, settings, added, store, go_run) {
       e <- state$editing
       if (is.null(e) || !is.null(e$uid) || !nzchar(input$exercise)) return()
       suggested <- step_from_exercise(catalog, input$exercise, settings())
-      updateNumericInput(session, "reps", value = suggested$reps %||% NA)
-      updateNumericInput(session, "seconds", value = suggested$seconds %||% NA)
+      updateNumericInput(session, "reps", value = blank_na(suggested$reps) %||% "")
+      updateNumericInput(session, "seconds", value = blank_na(suggested$seconds) %||% "")
       updateCheckboxInput(session, "sides", value = identical(suggested$sides, 2L))
       updateRadioButtons(session, "advance", selected = suggested$advance)
     }, ignoreInit = TRUE)
@@ -408,15 +410,15 @@ step_modal <- function(step, ns, catalog, is_new) {
       ),
       layout_columns(
         col_widths = c(6, 6), gap = "0.5rem",
-        conditionalPanel(not_rest, numericInput(ns("reps"), "Reps", value = step$reps %||% NA, min = 1, step = 1)),
-        numericInput(ns("seconds"), "Seconds", value = step$seconds %||% NA, min = 1, step = 5)
+        conditionalPanel(not_rest, numericInput(ns("reps"), "Reps", value = blank_na(step$reps), min = 1, step = 1)),
+        numericInput(ns("seconds"), "Seconds", value = blank_na(step$seconds), min = 1, step = 5)
       ),
       conditionalPanel(
         not_rest,
         layout_columns(
           col_widths = c(6, 6), gap = "0.5rem",
-          numericInput(ns("hold_seconds"), "Hold per rep (s)", value = step$hold_seconds %||% NA, min = 1),
-          numericInput(ns("relax_seconds"), "Relax between reps (s)", value = step$relax_seconds %||% NA, min = 0)
+          numericInput(ns("hold_seconds"), "Hold per rep (s)", value = blank_na(step$hold_seconds), min = 1),
+          numericInput(ns("relax_seconds"), "Relax between reps (s)", value = blank_na(step$relax_seconds), min = 0)
         ),
         checkboxInput(ns("sides"), "Each side (left, then right)", value = isTRUE(step$sides == 2))
       ),

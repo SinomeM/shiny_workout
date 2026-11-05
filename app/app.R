@@ -16,7 +16,6 @@ ui <- page_navbar(
   header = tags$head(
     tags$link(rel = "stylesheet", href = "styles.css"),
     tags$script(src = "storage.js"),
-    tags$script(src = "keys.js"),
     tags$script(src = "actions.js"),
     tags$script(src = "catalog.js"),
     tags$script(src = "vendor/Sortable-1.15.6.min.js"),  # SortableJS, MIT licence
@@ -33,8 +32,8 @@ ui <- page_navbar(
   ),
   nav_panel("Library", library_ui("library")),
   nav_panel("Run", player_ui("player")),
-  nav_panel("Diagnostics", diagnostics_ui("diag")),
   nav_spacer(),
+  nav_item(actionLink("help", "Help", icon = bsicons::bs_icon("question-circle"))),
   nav_item(actionLink("settings", "Settings", icon = bsicons::bs_icon("gear"))),
   nav_item(actionLink("about", "About", icon = bsicons::bs_icon("info-circle"))),
   nav_item(input_dark_mode(id = "dark_mode"))
@@ -56,7 +55,8 @@ server <- function(input, output, session) {
                 active = reactive(identical(input$nav, "Run")), go_build)
 
   observeEvent(input$about, showModal(about_modal(attr(catalog, "sources"))))
-  diagnostics_server("diag")
+  observeEvent(input$help, showModal(help_modal()))
+  observeEvent(input$help_key, showModal(help_modal()))
 }
 
 shinyApp(ui, server)
