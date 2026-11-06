@@ -281,17 +281,14 @@ editor_server <- function(id, catalog, settings, added, store, go_run) {
       updateRadioButtons(session, "advance", selected = suggested$advance)
     }, ignoreInit = TRUE)
 
-    observeEvent(input$save, {
+    observeEvent(input$save_step, {
       e <- state$editing
       if (is.null(e)) return()
       step <- step_from_inputs(input, e$step$type)
-      check <- validate_workout(new_workout("check", steps = list(
-        if (step$type == "repeat") utils::modifyList(step, list(steps = list(new_step("rest"))))
-        else step
-      )), catalog)
-      if (length(check$errors)) {
+      errors <- step_errors(step, catalog)
+      if (length(errors)) {
         output$modal_errors <- renderUI(div(class = "alert alert-danger py-2 small mb-0",
-                                            friendly_error(check$errors[1])))
+                                            friendly_error(errors[1])))
         return()
       }
       w <- if (is.null(e$uid)) insert_step(state$w, step, e$container) else replace_step(state$w, e$uid, step)
@@ -361,6 +358,13 @@ friendly_error <- function(message) {
   )
   hit <- which(startsWith(message, names(fixes)))
   if (length(hit)) fixes[[hit[1]]] else paste0(toupper(substring(message, 1, 1)), substring(message, 2))
+}
+
+# Errors in a step from the edit modal. The modal doesn't edit a block's inner steps, so
+# a repeat is checked with a stand-in step.
+step_errors <- function(step, catalog) {
+  if (step$type == "repeat") step$steps <- list(new_step("rest"))
+  validate_workout(new_workout("check", steps = list(step)), catalog)$errors
 }
 
 # Step built from the modal's inputs.
@@ -433,7 +437,7 @@ step_modal <- function(step, ns, catalog, is_new) {
     easyClose = FALSE,
     body,
     uiOutput(ns("modal_errors")),
-    footer = tagList(modalButton("Cancel"), actionButton(ns("save"), "Save", class = "btn-primary"))
+    footer = tagList(modalButton("Cancel"), actionButton(ns("save_step"), "Save", class = "btn-primary"))
   )
 }
 

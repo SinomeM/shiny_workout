@@ -36,3 +36,19 @@ test_that("friendly_error rewrites common validation messages", {
                "Set the seconds")
   expect_equal(friendly_error("Step 1.1: sides must be 1 or 2."), "Sides must be 1 or 2.")
 })
+
+test_that("the edit modal can save a repeat block", {
+  w <- with_uids(new_workout("Block"))
+  w <- insert_step(w, new_step("repeat", times = 3L, skip_last_rest = TRUE))
+  block <- w$steps[[1]]$uid
+  w <- insert_step(w, modal("rest", seconds = 30, advance = "auto"), container = block)
+
+  step <- step_from_inputs(list(times = 4, skip_last_rest = FALSE), "repeat")
+  expect_length(step_errors(step, catalog), 0)
+  w <- replace_step(w, block, step)
+  expect_equal(w$steps[[1]]$times, 4L)
+  expect_false(w$steps[[1]]$skip_last_rest)
+  expect_length(w$steps[[1]]$steps, 1)
+
+  expect_match(step_errors(step_from_inputs(list(times = 0), "repeat"), catalog), "times")
+})
